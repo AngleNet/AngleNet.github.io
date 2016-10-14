@@ -4,7 +4,7 @@
 #cd ../AngleNet.github.io
 blog=/home/anglenet/repo/anglenet.github.io
 local_url="http://localhost:7777"
-online_url="http://anglenet.github.io"
+online_url="https://anglenet.github.io"
 
 sed -i /^url/d _config.yml
 echo "url: $online_url" >> _config.yml

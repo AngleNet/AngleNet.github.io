@@ -4,14 +4,30 @@
   <meta charset="UTF-8">
   <title>Angle Net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://anglenet.github.io/js/jquery.min.js"></script>
-  <script src="https://anglenet.github.io/js/bootstrap.min.js"></script>
-  <script src="https://anglenet.github.io/js/header.js"></script>
-  <script src="https://anglenet.github.io/js/toc.js"></script>
-  <link href="https://anglenet.github.io/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Load KaTeX 
+  <link href="http://localhost:7777/css/katex.min.css" rel="stylesheet">
+  -->
+  <link href="http://localhost:7777/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="http://localhost:7777/js/jquery.min.js"></script>
+  <script src="http://localhost:7777/js/bootstrap.min.js"></script>
+  <script src="http://localhost:7777/js/header.js"></script>
+  <script src="http://localhost:7777/js/toc.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+            });
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <!-- Load KaTeX 
+  <script src="http://localhost:7777/js/katex.min.js"></script>
+  -->
+
 </head>
 
 <body>
@@ -46,14 +62,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://anglenet.github.io//">Angle Net</a>
+        <a class="navbar-brand" href="http://localhost:7777//">Angle Net</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://anglenet.github.io//">/home</a></li>
-          <li><a href="https://anglenet.github.io//archive.html">/archive</a></li>
-          <li><a href="https://anglenet.github.io//tags.html">/tags</a></li>
-          <li><a href="https://anglenet.github.io//about.html">/about</a></li>
+          <li><a href="http://localhost:7777//">/home</a></li>
+          <li><a href="http://localhost:7777//archive.html">/archive</a></li>
+          <li><a href="http://localhost:7777//tags.html">/tags</a></li>
+          <li><a href="http://localhost:7777//about.html">/about</a></li>
         </ul>
       </div>
     </div>
@@ -67,7 +83,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="https://anglenet.github.io/2015/12/Operating-system-1">OS<sub>1</sub>--Warm Up</a></h1>
+              <h1><a href="http://localhost:7777/2015/12/Operating-system-1">OS<sub>1</sub>--Warm Up</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -75,47 +91,53 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://anglenet.github.io/tag/Operating-System">Operating-System</a></li>
+                    <li><a href="http://localhost:7777/tag/Operating-System">Operating-System</a></li>
                   
                 </ul>
               </div>
               <div class="post-content">
                 <div id="toc" class="toc"></div>
-                <h3 id="1-introduction">1. Introduction</h3>
+                <h3 id="introduction">1.Introduction</h3>
 
-<p>When I was an undergraduate student, I always check this course status to see some staffs. But never learn it for entirety. I know I have to do this these days. Still challenges, but funny.  </p>
+<p>When I was an undergraduate student, I always check this course status to see some staffs. But never learn it for entirety. I know I have to do this these days. Still challenges, but funny.</p>
 
 <ul>
-<li><a href="http://www.cs.umd.edu/class/sum2003/cmsc311/Notes">Computing building blocks</a></li>
-<li><a href="https://www3.ntu.edu.sg/home/ehchua/programming/">Language Notes</a></li>
+  <li><a href="http://www.cs.umd.edu/class/sum2003/cmsc311/Notes">Computing building blocks</a></li>
+  <li><a href="https://www3.ntu.edu.sg/home/ehchua/programming/">Language Notes</a></li>
 </ul>
 
-<h3 id="2-recommanding-programming-styles">2. Recommanding programming styles</h3>
+<h3 id="recommanding-programming-styles">2.Recommanding programming styles</h3>
 
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Extreme_programming">Extreme programming</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Pair_programming">Pair programming</a></li>
-<li>The practice of programming(A programming book)</li>
-<li>Computer Systems: A Programmer&#39;s Perspective</li>
-<li>C Traps and Pitfalls</li>
+  <li><a href="https://en.wikipedia.org/wiki/Extreme_programming">Extreme programming</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Pair_programming">Pair programming</a></li>
+  <li>The practice of programming(A programming book)</li>
+  <li>Computer Systems: A Programmer’s Perspective</li>
+  <li>C Traps and Pitfalls</li>
 </ul>
 
-<h3 id="3-project-0">3. Project 0</h3>
+<h3 id="project-0">3.Project 0</h3>
 
-<p>&emsp;The <code>traceback()</code> function is a useful method for debugging. OS uses it to dump enough information when an emergency situation happens, such as a <strong>Segment fault</strong>. I will practice to write a <code>traceback()</code> function in this project.</p>
+<p> The <code class="highlighter-rouge">traceback()</code> function is a useful method for debugging. OS uses it to dump enough information when an emergency situation happens, such as a <strong>Segment fault</strong>. I will practice to write a <code class="highlighter-rouge">traceback()</code> function in this project.</p>
 
-<h3 id="4-tips">4. Tips</h3>
+<h3 id="tips">4.Tips</h3>
 
 <ul>
-<li><p>Designing before coding. </p>
+  <li>
+    <p>Designing before coding.</p>
 
-<p>For systems programming, it is very important to think out crucial data structures and algorithms ahead of time since they become important primitives for the rest of the system. </p></li>
-<li><p>Always Commenting. </p>
+    <p>For systems programming, it is very important to think out crucial data structures and algorithms ahead of time since they become important primitives for the rest of the system.</p>
+  </li>
+  <li>
+    <p>Always Commenting.</p>
 
-<p>In this project, I used <a href="http://www.stack.nl/%7Edimitri/doxygen/">Doxygen</a> for documentations.</p></li>
-<li><p>About design</p>
+    <p>In this project, I used <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a> for documentations.</p>
+  </li>
+  <li>
+    <p>About design</p>
 
-<p>When works on a solution, think hard to come up with a few feasible approaches and then do tradeoff varifications. Practice the best approach.</p></li>
+    <p>When works on a solution, think hard to come up with a few feasible approaches and then do tradeoff varifications. Practice the best approach.</p>
+  </li>
 </ul>
 
               </div>
@@ -128,15 +150,15 @@
   <h1>Recent Posts</h1>
   <ul>
     
-    <li><a href="https://anglenet.github.io//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
+    <li><a href="http://localhost:7777//2016/10/ML-Classifier">Classifier</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/go-notes">Go Language Notes</a></li>
+    <li><a href="http://localhost:7777//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
+    <li><a href="http://localhost:7777//2016/03/go-notes">Go Language Notes</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
+    <li><a href="http://localhost:7777//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/DS-1">DS<sub>1</sub>--Warm Up</a></li>
+    <li><a href="http://localhost:7777//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
     
   </ul>
 </div>
@@ -145,21 +167,23 @@
   <h1>Tags</h1>
   <ul>
     
-      <li><a href="https://anglenet.github.io//tag/Operating-System">Operating-System</a></li>
+      <li><a href="http://localhost:7777//tag/Operating-System">Operating-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Unix">Unix</a></li>
+      <li><a href="http://localhost:7777//tag/Tools">Tools</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Hadoop">Hadoop</a></li>
+      <li><a href="http://localhost:7777//tag/Hadoop">Hadoop</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Language">Language</a></li>
+      <li><a href="http://localhost:7777//tag/Language">Language</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Software-Engineering">Software-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Software-Engineering">Software-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Reverse-Engineering">Reverse-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Reverse-Engineering">Reverse-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Database-System">Database-System</a></li>
+      <li><a href="http://localhost:7777//tag/Database-System">Database-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Distributed-System">Distributed-System</a></li>
+      <li><a href="http://localhost:7777//tag/Distributed-System">Distributed-System</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Machine-Learning">Machine-Learning</a></li>
     
   </ul>
 </div>
@@ -204,6 +228,25 @@
       </div>
     </footer>
   </body>
+<!--
+<script>
+$("script[type='math/tex']").replaceWith(
+    function(){
+        var tex = $(this).text();
+        return "<span class=\"inline-equation\">" + 
+            katex.renderToString(tex) +
+            "</span>";
+});
+$("script[type='math/tex; mode=display']").replaceWith(
+          function(){
+            var tex = $(this).text();
+            return "<div class=\"equation\">" + 
+                katex.renderToString("\\displaystyle "+tex) +
+                "</div>";
+});
+</script>
+-->
 </html>
+
 
 </div>

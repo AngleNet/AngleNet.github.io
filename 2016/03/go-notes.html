@@ -4,14 +4,30 @@
   <meta charset="UTF-8">
   <title>Angle Net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://anglenet.github.io/js/jquery.min.js"></script>
-  <script src="https://anglenet.github.io/js/bootstrap.min.js"></script>
-  <script src="https://anglenet.github.io/js/header.js"></script>
-  <script src="https://anglenet.github.io/js/toc.js"></script>
-  <link href="https://anglenet.github.io/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Load KaTeX 
+  <link href="http://localhost:7777/css/katex.min.css" rel="stylesheet">
+  -->
+  <link href="http://localhost:7777/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="http://localhost:7777/js/jquery.min.js"></script>
+  <script src="http://localhost:7777/js/bootstrap.min.js"></script>
+  <script src="http://localhost:7777/js/header.js"></script>
+  <script src="http://localhost:7777/js/toc.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+            });
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <!-- Load KaTeX 
+  <script src="http://localhost:7777/js/katex.min.js"></script>
+  -->
+
 </head>
 
 <body>
@@ -46,14 +62,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://anglenet.github.io//">Angle Net</a>
+        <a class="navbar-brand" href="http://localhost:7777//">Angle Net</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://anglenet.github.io//">/home</a></li>
-          <li><a href="https://anglenet.github.io//archive.html">/archive</a></li>
-          <li><a href="https://anglenet.github.io//tags.html">/tags</a></li>
-          <li><a href="https://anglenet.github.io//about.html">/about</a></li>
+          <li><a href="http://localhost:7777//">/home</a></li>
+          <li><a href="http://localhost:7777//archive.html">/archive</a></li>
+          <li><a href="http://localhost:7777//tags.html">/tags</a></li>
+          <li><a href="http://localhost:7777//about.html">/about</a></li>
         </ul>
       </div>
     </div>
@@ -67,7 +83,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="https://anglenet.github.io/2016/03/go-notes">Go Language Notes</a></h1>
+              <h1><a href="http://localhost:7777/2016/03/go-notes">Go Language Notes</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -75,48 +91,55 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://anglenet.github.io/tag/Language">Language</a></li>
+                    <li><a href="http://localhost:7777/tag/Language">Language</a></li>
                   
                 </ul>
               </div>
               <div class="post-content">
                 <div id="toc" class="toc"></div>
-                <h3 id="1-confusing-language-blocks">1. Confusing Language blocks</h3>
+                <h3 id="confusing-language-blocks">1. Confusing Language blocks</h3>
 
-<h4 id="1-1-interface">1.1 Interface</h4>
-
-<p>Come soon</p>
-
-<h4 id="1-2-channel">1.2 Channel</h4>
+<h4 id="interface">1.1 Interface</h4>
 
 <p>Come soon</p>
 
-<h4 id="1-3-make-vs-new">1.3 <code>make</code> VS <code>new</code></h4>
+<h4 id="channel">1.2 Channel</h4>
 
-<p>According to the <a href="https://golang.org/doc/effective_go.html#allocation_new">Official explanation</a>, <code>new</code> does not initialize the memory, only zeros it and return the address. <code>make(T, args)</code> serves a purpose different from new(T). It creates slices, maps, and channels only, and it returns an initialized (not zeroed) value of type T (not *T). So what <code>make</code> returns is usable immediately while what <code>new</code> returns needs further initializing if zeroed content can not be used. </p>
+<p>Come soon</p>
 
-<h3 id="2-go-idioms">2. Go idioms</h3>
+<h4 id="make-vs-new">1.3 <code class="highlighter-rouge">make</code> VS <code class="highlighter-rouge">new</code></h4>
 
-<h4 id="2-1-atomic-operation">2.1 Atomic operation</h4>
-<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="x">    </span><span class="n">countCh</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="nb">make</span><span class="p">(</span><span class="k">chan</span><span class="x"> </span><span class="kt">int</span><span class="p">)</span><span class="x">
+<p>According to the <a href="https://golang.org/doc/effective_go.html#allocation_new">Official explanation</a>, <code class="highlighter-rouge">new</code> does not initialize the memory, only zeros it and return the address. <code class="highlighter-rouge">make(T, args)</code> serves a purpose different from new(T). It creates slices, maps, and channels only, and it returns an initialized (not zeroed) value of type T (not *T). So what <code class="highlighter-rouge">make</code> returns is usable immediately while what <code class="highlighter-rouge">new</code> returns needs further initializing if zeroed content can not be used.</p>
+
+<h3 id="go-idioms">2. Go idioms</h3>
+
+<h4 id="atomic-operation">2.1 Atomic operation</h4>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="x">	</span><span class="n">countCh</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="nb">make</span><span class="p">(</span><span class="k">chan</span><span class="x"> </span><span class="kt">int</span><span class="p">)</span><span class="x">
     </span><span class="n">count</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&lt;-</span><span class="x"> </span><span class="n">countCh</span><span class="x">
     </span><span class="n">count</span><span class="o">++</span><span class="x">
     </span><span class="n">countCh</span><span class="x"> </span><span class="o">&lt;-</span><span class="x"> </span><span class="n">count</span><span class="x">
-</span></code></pre></div>
-<h4 id="2-2-check-whether-the-channel-is-full">2.2 Check whether the channel is full</h4>
-<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="x">    </span><span class="k">if</span><span class="x"> </span><span class="nb">len</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="x"> </span><span class="o">==</span><span class="x"> </span><span class="nb">cap</span><span class="p">(</span><span class="n">ch</span><span class="p">){</span><span class="x">
+</span></code></pre>
+</div>
+
+<h4 id="check-whether-the-channel-is-full">2.2 Check whether the channel is full</h4>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="x">	</span><span class="k">if</span><span class="x"> </span><span class="nb">len</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="x"> </span><span class="o">==</span><span class="x"> </span><span class="nb">cap</span><span class="p">(</span><span class="n">ch</span><span class="p">){</span><span class="x">
     </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="x">
     </span><span class="p">}</span><span class="x">
-</span></code></pre></div>
+</span></code></pre>
+</div>
+
 <h3 id="useful-links">Useful Links</h3>
 
-<p>The official <a href="https://golang.org/doc/effective_go.html">Effective go</a> is the best place to conquer the confusion of language specifics. </p>
+<p>The official <a href="https://golang.org/doc/effective_go.html">Effective go</a> is the best place to conquer the confusion of language specifics.</p>
 
 <ul>
-<li>  <a href="http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang">50 shades of Go: traps and pitfalls</a></li>
-<li>  <a href="https://www.nada.kth.se/%7Esnilsson/concurrency/">Concurrency</a></li>
-<li>  <a href="https://rogpeppe.wordpress.com/">Rogpeppe Page</a></li>
+  <li><a href="http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang">50 shades of Go: traps and pitfalls</a></li>
+  <li><a href="https://www.nada.kth.se/~snilsson/concurrency/">Concurrency</a></li>
+  <li><a href="https://rogpeppe.wordpress.com/">Rogpeppe Page</a></li>
 </ul>
+
 
               </div>
               
@@ -128,15 +151,15 @@
   <h1>Recent Posts</h1>
   <ul>
     
-    <li><a href="https://anglenet.github.io//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
+    <li><a href="http://localhost:7777//2016/10/ML-Classifier">Classifier</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/go-notes">Go Language Notes</a></li>
+    <li><a href="http://localhost:7777//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
+    <li><a href="http://localhost:7777//2016/03/go-notes">Go Language Notes</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
+    <li><a href="http://localhost:7777//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/DS-1">DS<sub>1</sub>--Warm Up</a></li>
+    <li><a href="http://localhost:7777//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
     
   </ul>
 </div>
@@ -145,21 +168,23 @@
   <h1>Tags</h1>
   <ul>
     
-      <li><a href="https://anglenet.github.io//tag/Operating-System">Operating-System</a></li>
+      <li><a href="http://localhost:7777//tag/Operating-System">Operating-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Unix">Unix</a></li>
+      <li><a href="http://localhost:7777//tag/Tools">Tools</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Hadoop">Hadoop</a></li>
+      <li><a href="http://localhost:7777//tag/Hadoop">Hadoop</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Language">Language</a></li>
+      <li><a href="http://localhost:7777//tag/Language">Language</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Software-Engineering">Software-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Software-Engineering">Software-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Reverse-Engineering">Reverse-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Reverse-Engineering">Reverse-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Database-System">Database-System</a></li>
+      <li><a href="http://localhost:7777//tag/Database-System">Database-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Distributed-System">Distributed-System</a></li>
+      <li><a href="http://localhost:7777//tag/Distributed-System">Distributed-System</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Machine-Learning">Machine-Learning</a></li>
     
   </ul>
 </div>
@@ -204,6 +229,25 @@
       </div>
     </footer>
   </body>
+<!--
+<script>
+$("script[type='math/tex']").replaceWith(
+    function(){
+        var tex = $(this).text();
+        return "<span class=\"inline-equation\">" + 
+            katex.renderToString(tex) +
+            "</span>";
+});
+$("script[type='math/tex; mode=display']").replaceWith(
+          function(){
+            var tex = $(this).text();
+            return "<div class=\"equation\">" + 
+                katex.renderToString("\\displaystyle "+tex) +
+                "</div>";
+});
+</script>
+-->
 </html>
+
 
 </div>

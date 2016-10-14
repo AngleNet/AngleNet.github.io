@@ -4,14 +4,30 @@
   <meta charset="UTF-8">
   <title>Angle Net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://anglenet.github.io/js/jquery.min.js"></script>
-  <script src="https://anglenet.github.io/js/bootstrap.min.js"></script>
-  <script src="https://anglenet.github.io/js/header.js"></script>
-  <script src="https://anglenet.github.io/js/toc.js"></script>
-  <link href="https://anglenet.github.io/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Load KaTeX 
+  <link href="http://localhost:7777/css/katex.min.css" rel="stylesheet">
+  -->
+  <link href="http://localhost:7777/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="http://localhost:7777/js/jquery.min.js"></script>
+  <script src="http://localhost:7777/js/bootstrap.min.js"></script>
+  <script src="http://localhost:7777/js/header.js"></script>
+  <script src="http://localhost:7777/js/toc.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+            });
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <!-- Load KaTeX 
+  <script src="http://localhost:7777/js/katex.min.js"></script>
+  -->
+
 </head>
 
 <body>
@@ -46,14 +62,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://anglenet.github.io//">Angle Net</a>
+        <a class="navbar-brand" href="http://localhost:7777//">Angle Net</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://anglenet.github.io//">/home</a></li>
-          <li><a href="https://anglenet.github.io//archive.html">/archive</a></li>
-          <li><a href="https://anglenet.github.io//tags.html">/tags</a></li>
-          <li><a href="https://anglenet.github.io//about.html">/about</a></li>
+          <li><a href="http://localhost:7777//">/home</a></li>
+          <li><a href="http://localhost:7777//archive.html">/archive</a></li>
+          <li><a href="http://localhost:7777//tags.html">/tags</a></li>
+          <li><a href="http://localhost:7777//about.html">/about</a></li>
         </ul>
       </div>
     </div>
@@ -67,7 +83,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="https://anglenet.github.io/2016/01/C-notes">C Language Notes</a></h1>
+              <h1><a href="http://localhost:7777/2016/01/C-notes">C Language Notes</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -75,7 +91,7 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://anglenet.github.io/tag/Language">Language</a></li>
+                    <li><a href="http://localhost:7777/tag/Language">Language</a></li>
                   
                 </ul>
               </div>
@@ -83,119 +99,147 @@
                 <div id="toc" class="toc"></div>
                 <h4 id="introduction">Introduction</h4>
 
-<p>Most of what I talk about in this notes are from some famous C programming books and my personal programming expeirence. C is an old programming language and provides the system programmer with the most freedom. You can do anything with it. </p>
+<p>Most of what I talk about in this notes are from some famous C programming books and my personal programming expeirence. C is an old programming language and provides the system programmer with the most freedom. You can do anything with it.</p>
 
-<h4 id="1-function-declaration">1. Function declaration</h4>
+<h4 id="function-declaration">1.Function declaration</h4>
 
 <ul>
-<li><p>Call a funtion witch no arguments and site at address 0</p>
+  <li>
+    <p>Call a funtion witch no arguments and site at address 0</p>
 
-<p><code>(*(void(*) ()) 0) ();</code> </p>
+    <p><code class="highlighter-rouge">(*(void(*) ()) 0) ();</code></p>
 
-<p>Another declaration</p>
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">funcptr</span><span class="p">)();</span>
+    <p>Another declaration</p>
+
+    <div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">funcptr</span><span class="p">)();</span>
 <span class="p">(</span><span class="o">*</span> <span class="p">(</span><span class="n">funcptr</span><span class="p">)</span><span class="mi">0</span><span class="p">)();</span>
-</code></pre></div>
-<p>The secret behind this statement is the priority of parentheses is higher than asterisk</p></li>
+</code></pre>
+    </div>
+
+    <p>The secret behind this statement is the priority of parentheses is higher than asterisk</p>
+  </li>
 </ul>
 
-<h4 id="2-parallel-in-linux">2. Parallel in linux</h4>
+<h4 id="parallel-in-linux">2.Parallel in linux</h4>
 
 <ul>
-<li><p>Fork 3 processes:</p>
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;unistd.h&gt;     //defines system calls and useful types.
-#include &lt;sys/types.h&gt;  //defines system call types, but more.
-</span>
+  <li>
+    <p>Fork 3 processes:</p>
+
+    <div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt; 	//defines system calls and useful types.
+#include &lt;sys/types.h&gt;	//defines system call types, but more.
+</span>   	
 <span class="n">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+	<span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
     <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
-        <span class="c1">//process creation error.
+    	<span class="c1">//process creation error.
 </span>    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-        <span class="c1">//child process.
+    	<span class="c1">//child process.
 </span>        <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="c1">//parent process.
+    	<span class="c1">//parent process.
 </span>    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></li>
+</code></pre>
+    </div>
+  </li>
 </ul>
 
-<h4 id="3-header-files">3 Header files</h4>
+<h4 id="header-files">3.Header files</h4>
 
 <ul>
-<li>stdlib.h and malloc.h 
-stdlib.h is a standard C header that declares among other things the malloc(), calloc(), free() functions. This is the header you should include.
-malloc.h is a non-standard header, found on many systems where it often defines additional functions specific to the malloc implementation used by that platform.</li>
+  <li>stdlib.h and malloc.h 
+  stdlib.h is a standard C header that declares among other things the malloc(), calloc(), free() functions. This is the header you should include.
+  malloc.h is a non-standard header, found on many systems where it often defines additional functions specific to the malloc implementation used by that platform.</li>
 </ul>
 
-<h4 id="4-inline-vs-macro">4. <code>Inline</code> VS <code>Macro</code></h4>
+<h4 id="inline-vs-macro">4.<code class="highlighter-rouge">Inline</code> VS <code class="highlighter-rouge">Macro</code></h4>
 
 <p>Preprocessor macros are just substitution patterns applied to your code. They can be used almost anywhere in your code because they are replaced with their expansions before any compilation starts.
 Inline functions are actual functions whose body is directly injected into their call site. They can only be used where a function call is appropriate.</p>
 
 <ul>
-<li>  Macros are not type safe, and can be expanded regardless of whether they are syntatically correct - the compile phase will report errors resulting from macro expansion problems.</li>
-<li>  Macros are more flexible, in that they can expand other macros - whereas inline functions don&#39;t necessarily do this.</li>
-<li>  Macros can result in side effects because of their expansion, since the input expressions are copied wherever they appear in the pattern.</li>
+  <li>Macros are not type safe, and can be expanded regardless of whether they are syntatically correct - the compile phase will report errors resulting from macro expansion problems.</li>
+  <li>Macros are more flexible, in that they can expand other macros - whereas inline functions don’t necessarily do this.</li>
+  <li>Macros can result in side effects because of their expansion, since the input expressions are copied wherever they appear in the pattern.</li>
 </ul>
 
-<h4 id="5-pointer-to-functions">5. Pointer to functions</h4>
+<h4 id="pointer-to-functions">5.Pointer to functions</h4>
 
 <p>Pointer to functions if often used for callbacks. The address of function can be set directly, so it is possible to jump to an arbitrary address, it is useful in embedded-programming:</p>
-<div class="highlight"><pre><code class="language-c" data-lang="c">    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func_ptr</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="mh">0x12345678</span><span class="p">;</span>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code>    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func_ptr</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="mh">0x12345678</span><span class="p">;</span>
     <span class="p">(</span><span class="o">*</span><span class="n">func_ptr</span><span class="p">)();</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>However, it should be noted that this is not the same thing as unconditional jump, because return address is saved in the stack, maybe something else.</p>
 
-<h4 id="6-confusing-const-char-char-const-char-const">6. Confusing <code>const char *</code>, <code>char const *</code>, <code>char * const</code></h4>
+<h4 id="confusing-const-char--char-const--char--const">6. Confusing <code class="highlighter-rouge">const char *</code>, <code class="highlighter-rouge">char const *</code>, <code class="highlighter-rouge">char * const</code></h4>
 
-<p>We could read a definition from right to left. The meaning is much clearer. <code>const char *p</code> says <em>p</em> is a pointer to type <code>const char</code>, that is the content of *<em>p</em> can not be changed.</p>
+<p>We could read a definition from right to left. The meaning is much clearer. <code class="highlighter-rouge">const char *p</code> says <em>p</em> is a pointer to type <code class="highlighter-rouge">const char</code>, that is the content of <em>*p</em> can not be changed.</p>
 
-<h4 id="7-return-struct-from-function">7. Return <code>struct</code> from function.</h4>
-<div class="highlight"><pre><code class="language-" data-lang="">Returning a newly create struct instance from a function is perfectly safe. It is just *Return by value*. That newly created struct is copied to the return value. And the newly created struct is vanished by calling its destructor. For the sake of optimization, the struct instance may acturally created in the calling context to avoid later copy. 
-</code></pre></div>
+<h4 id="return-struct-from-function">7. Return <code class="highlighter-rouge">struct</code> from function.</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Returning a newly create struct instance from a function is perfectly safe. It is just *Return by value*. That newly created struct is copied to the return value. And the newly created struct is vanished by calling its destructor. For the sake of optimization, the struct instance may acturally created in the calling context to avoid later copy. 
+</code></pre>
+</div>
+
 <h4 id="c-stuff">C++ Stuff</h4>
 
 <ul>
-<li><p>Inheritance.</p>
+  <li>
+    <p>Inheritance.</p>
 
-<p>Decorated inheritance is just a way to narow the access scope of its parental members. That is <code>private</code> inheritance narrows all its parental members to be <code>private</code>. </p></li>
-<li><p>Vitual functions.</p>
+    <p>Decorated inheritance is just a way to narow the access scope of its parental members. That is <code class="highlighter-rouge">private</code> inheritance narrows all its parental members to be <code class="highlighter-rouge">private</code>.</p>
+  </li>
+  <li>
+    <p>Vitual functions.</p>
 
-<p>Normal functions are just a static binding to its current class. While <code>virtual</code> functions are somewhat dynamic bindings. The owned instance is dymically resolved.</p></li>
+    <p>Normal functions are just a static binding to its current class. While <code class="highlighter-rouge">virtual</code> functions are somewhat dynamic bindings. The owned instance is dymically resolved.</p>
+  </li>
 </ul>
 
 <h4 id="secrets">Secrets.</h4>
 
 <ul>
-<li><p>Here doc</p>
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="o">=</span><span class="s">"line1</span><span class="se">\n</span><span class="s">"</span>
+  <li>
+    <p>Here doc</p>
+
+    <div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="o">=</span><span class="s">"line1</span><span class="se">\n</span><span class="s">"</span>
     <span class="s">"line2</span><span class="se">\n</span><span class="s">"</span>
     <span class="s">"line3</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-</code></pre></div></li>
-<li><p><code>sizeof()</code> operator.</p>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">sizeof()</code> operator.</p>
 
-<p>Usually, sizeof() is applied to integral types or to structures, but nevertheless it is possible to apply it to arrays as well. The result is caculated via Bytes.</p></li>
-<li><p>Standard preprocessor</p>
+    <p>Usually, sizeof() is applied to integral types or to structures, but nevertheless it is possible to apply it to arrays as well. The result is caculated via Bytes.</p>
+  </li>
+  <li>
+    <p>Standard preprocessor</p>
 
-<p><code>__FILE__</code>, <code>__LINE__</code>, <code>__FUNCTION__</code> denotes current file name, current line number, current function name respectively.</p>
+    <p><code class="highlighter-rouge">__FILE__</code>, <code class="highlighter-rouge">__LINE__</code>, <code class="highlighter-rouge">__FUNCTION__</code> denotes current file name, current line number, current function name respectively.</p>
 
-<p>Next: C-notes(page 25)</p></li>
+    <p>Next: C-notes(page 25)</p>
+  </li>
 </ul>
 
 <h4 id="others">Others</h4>
 
 <ul>
-<li>  <a href="https://gcc.gnu.org/onlinedocs/cpp/Macros.html">Macros</a> is always a confusing part of C.</li>
-<li>  Recommending read lines:
-
-<ul>
-<li>Effective C++: Introduces some import ideas about the language.</li>
-<li>Exceptional C++: Some advanced staffs.</li>
-</ul></li>
+  <li><a href="https://gcc.gnu.org/onlinedocs/cpp/Macros.html">Macros</a> is always a confusing part of C.</li>
+  <li>Recommending read lines:
+    <ul>
+      <li>Effective C++: Introduces some import ideas about the language.</li>
+      <li>Exceptional C++: Some advanced staffs.</li>
+    </ul>
+  </li>
 </ul>
+
 
               </div>
               
@@ -207,15 +251,15 @@ Inline functions are actual functions whose body is directly injected into their
   <h1>Recent Posts</h1>
   <ul>
     
-    <li><a href="https://anglenet.github.io//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
+    <li><a href="http://localhost:7777//2016/10/ML-Classifier">Classifier</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/go-notes">Go Language Notes</a></li>
+    <li><a href="http://localhost:7777//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
+    <li><a href="http://localhost:7777//2016/03/go-notes">Go Language Notes</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
+    <li><a href="http://localhost:7777//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/DS-1">DS<sub>1</sub>--Warm Up</a></li>
+    <li><a href="http://localhost:7777//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
     
   </ul>
 </div>
@@ -224,21 +268,23 @@ Inline functions are actual functions whose body is directly injected into their
   <h1>Tags</h1>
   <ul>
     
-      <li><a href="https://anglenet.github.io//tag/Operating-System">Operating-System</a></li>
+      <li><a href="http://localhost:7777//tag/Operating-System">Operating-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Unix">Unix</a></li>
+      <li><a href="http://localhost:7777//tag/Tools">Tools</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Hadoop">Hadoop</a></li>
+      <li><a href="http://localhost:7777//tag/Hadoop">Hadoop</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Language">Language</a></li>
+      <li><a href="http://localhost:7777//tag/Language">Language</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Software-Engineering">Software-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Software-Engineering">Software-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Reverse-Engineering">Reverse-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Reverse-Engineering">Reverse-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Database-System">Database-System</a></li>
+      <li><a href="http://localhost:7777//tag/Database-System">Database-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Distributed-System">Distributed-System</a></li>
+      <li><a href="http://localhost:7777//tag/Distributed-System">Distributed-System</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Machine-Learning">Machine-Learning</a></li>
     
   </ul>
 </div>
@@ -283,6 +329,25 @@ Inline functions are actual functions whose body is directly injected into their
       </div>
     </footer>
   </body>
+<!--
+<script>
+$("script[type='math/tex']").replaceWith(
+    function(){
+        var tex = $(this).text();
+        return "<span class=\"inline-equation\">" + 
+            katex.renderToString(tex) +
+            "</span>";
+});
+$("script[type='math/tex; mode=display']").replaceWith(
+          function(){
+            var tex = $(this).text();
+            return "<div class=\"equation\">" + 
+                katex.renderToString("\\displaystyle "+tex) +
+                "</div>";
+});
+</script>
+-->
 </html>
+
 
 </div>

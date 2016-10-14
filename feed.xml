@@ -3,62 +3,138 @@
 	<channel>
 		<title>Angle Net</title>
 		<description>Software Developer</description>
-		<link>https://anglenet.github.io/</link>
-		<atom:link href="https://anglenet.github.io//feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://localhost:7777/</link>
+		<atom:link href="http://localhost:7777//feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Classifier</title>
+				<description>&lt;h3 id=&quot;overview&quot;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;We use Machine Learning as a powerful tool to dicover patterns and make predictions. Model and statistics help us understand the “pattern”. Optimization algorithm learns the “pattern”. The most important part is data. Data drives everything else.
+There are mainly 3 types of classifier, i.e Observer based, Generative model and Discriminative model. KNN is based on all of the instances. Bayes networks are generative model and decision trees are discriminative model. Also, I will explain some linear classification algorithms, I think that is the most interesting part of this blog.&lt;/p&gt;
+
+&lt;h3 id=&quot;k-nearst-neighbor&quot;&gt;K-Nearst Neighbor&lt;/h3&gt;
+
+&lt;h3 id=&quot;bayes-networks&quot;&gt;Bayes Networks&lt;/h3&gt;
+
+&lt;h3 id=&quot;dicision-tree&quot;&gt;Dicision Tree&lt;/h3&gt;
+
+&lt;h3 id=&quot;linear-classifiers&quot;&gt;Linear Classifiers&lt;/h3&gt;
+
+&lt;p&gt;Linear classifier should divide the input space into a collection of regions via some hyperplanes since there may be multiple classes in the input space.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Find the Linear Boundaries&lt;/p&gt;
+
+    &lt;p&gt;1.Fit linear regression model to the class indicator variables, then the overlapping margin is what we want.So:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\lbrace X:(\beta _{k0} - \beta_{l0}) + (\beta _{k} - \beta _{l})X = 0\rbrace&lt;/script&gt;
+
+    &lt;p&gt;We will get the linear boundary.&lt;/p&gt;
+
+    &lt;p&gt;2.Directly model the boundaries between the classes as linear seperating hyperplanes&lt;/p&gt;
+
+    &lt;p&gt;(d-1) dimensional hyperplanes(Also called perceptron):&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\lbrace X:\beta _0 + \beta _1 X_1 + \beta _2 X_2 = 0 \rbrace&lt;/script&gt;
+
+    &lt;p&gt;We define the boundary as:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\lbrace \beta _0 + \beta ^TX = 0\rbrace&lt;/script&gt;
+
+    &lt;p&gt;For every point $X_0$ in the sample space, the distance from $X_0$ to the hyperplane is:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;d(\beta _0, \beta) = {\beta ^T(X - X_0) \over ||\beta||}&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Perceptron Learning Algorithm&lt;/p&gt;
+
+    &lt;p&gt;Idea: Minimize the risk of misclassification.
+  I want the hyperplane could seperate as much samples as possible. Any mistake should hurt the objective function. So I define a risk function as:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmin \quad R(\beta _0, \beta) = \sum_{X \in M}L(\beta _0, \beta, X_i, y_i)&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\beta _0 + \beta ^TX) \ge 0$}  \\ -y_i(\beta _0 + \beta ^TX) &amp; \text{otherwise} \end{cases} %]]&gt;&lt;/script&gt;
+
+    &lt;p&gt;Where $M$ is the set of misclassified samples. There are two ways to solve this: Gradient descent and Stochastic gradient descent. I’m not going to talk about this here. If you are interested, step to &lt;a href=&quot;http://sebastianruder.com/optimizing-gradient-descent/&quot;&gt;Overview of gradient descent including popular frameworks&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Maximum Margin Classifier&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Support Vector Classifier&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Support Vector Machine&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Thu, 13 Oct 2016 00:00:00 +0800</pubDate>
+				<link>http://localhost:7777//2016/10/ML-Classifier</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/10/ML-Classifier</guid>
+			</item>
 		
 			<item>
 				<title>MapReduce Framework</title>
-				<description>&lt;h3 id=&quot;architecture&quot;&gt;*    Architecture&lt;/h3&gt;
+				<description>&lt;h3 id=&quot;architecture&quot;&gt;Architecture&lt;/h3&gt;
 
-&lt;h3 id=&quot;&gt;*&lt;/h3&gt;
 </description>
 				<pubDate>Fri, 15 Apr 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/04/DS-MapReduce-1</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/04/DS-MapReduce-1</guid>
+				<link>http://localhost:7777//2016/04/DS-MapReduce-1</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/04/DS-MapReduce-1</guid>
 			</item>
 		
 			<item>
 				<title>Go Language Notes</title>
-				<description>&lt;h3 id=&quot;1-confusing-language-blocks&quot;&gt;1. Confusing Language blocks&lt;/h3&gt;
+				<description>&lt;h3 id=&quot;confusing-language-blocks&quot;&gt;1. Confusing Language blocks&lt;/h3&gt;
 
-&lt;h4 id=&quot;1-1-interface&quot;&gt;1.1 Interface&lt;/h4&gt;
-
-&lt;p&gt;Come soon&lt;/p&gt;
-
-&lt;h4 id=&quot;1-2-channel&quot;&gt;1.2 Channel&lt;/h4&gt;
+&lt;h4 id=&quot;interface&quot;&gt;1.1 Interface&lt;/h4&gt;
 
 &lt;p&gt;Come soon&lt;/p&gt;
 
-&lt;h4 id=&quot;1-3-make-vs-new&quot;&gt;1.3 &lt;code&gt;make&lt;/code&gt; VS &lt;code&gt;new&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;channel&quot;&gt;1.2 Channel&lt;/h4&gt;
 
-&lt;p&gt;According to the &lt;a href=&quot;https://golang.org/doc/effective_go.html#allocation_new&quot;&gt;Official explanation&lt;/a&gt;, &lt;code&gt;new&lt;/code&gt; does not initialize the memory, only zeros it and return the address. &lt;code&gt;make(T, args)&lt;/code&gt; serves a purpose different from new(T). It creates slices, maps, and channels only, and it returns an initialized (not zeroed) value of type T (not *T). So what &lt;code&gt;make&lt;/code&gt; returns is usable immediately while what &lt;code&gt;new&lt;/code&gt; returns needs further initializing if zeroed content can not be used. &lt;/p&gt;
+&lt;p&gt;Come soon&lt;/p&gt;
 
-&lt;h3 id=&quot;2-go-idioms&quot;&gt;2. Go idioms&lt;/h3&gt;
+&lt;h4 id=&quot;make-vs-new&quot;&gt;1.3 &lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt; VS &lt;code class=&quot;highlighter-rouge&quot;&gt;new&lt;/code&gt;&lt;/h4&gt;
 
-&lt;h4 id=&quot;2-1-atomic-operation&quot;&gt;2.1 Atomic operation&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;x&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;countCh&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;chan&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;p&gt;According to the &lt;a href=&quot;https://golang.org/doc/effective_go.html#allocation_new&quot;&gt;Official explanation&lt;/a&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;new&lt;/code&gt; does not initialize the memory, only zeros it and return the address. &lt;code class=&quot;highlighter-rouge&quot;&gt;make(T, args)&lt;/code&gt; serves a purpose different from new(T). It creates slices, maps, and channels only, and it returns an initialized (not zeroed) value of type T (not *T). So what &lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt; returns is usable immediately while what &lt;code class=&quot;highlighter-rouge&quot;&gt;new&lt;/code&gt; returns needs further initializing if zeroed content can not be used.&lt;/p&gt;
+
+&lt;h3 id=&quot;go-idioms&quot;&gt;2. Go idioms&lt;/h3&gt;
+
+&lt;h4 id=&quot;atomic-operation&quot;&gt;2.1 Atomic operation&lt;/h4&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;x&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;countCh&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;chan&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;countCh&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;countCh&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&quot;2-2-check-whether-the-channel-is-full&quot;&gt;2.2 Check whether the channel is full&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;x&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;check-whether-the-channel-is-full&quot;&gt;2.2 Check whether the channel is full&lt;/h4&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;x&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;h3 id=&quot;useful-links&quot;&gt;Useful Links&lt;/h3&gt;
 
-&lt;p&gt;The official &lt;a href=&quot;https://golang.org/doc/effective_go.html&quot;&gt;Effective go&lt;/a&gt; is the best place to conquer the confusion of language specifics. &lt;/p&gt;
+&lt;p&gt;The official &lt;a href=&quot;https://golang.org/doc/effective_go.html&quot;&gt;Effective go&lt;/a&gt; is the best place to conquer the confusion of language specifics.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;  &lt;a href=&quot;http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang&quot;&gt;50 shades of Go: traps and pitfalls&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;  &lt;a href=&quot;https://www.nada.kth.se/%7Esnilsson/concurrency/&quot;&gt;Concurrency&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;  &lt;a href=&quot;https://rogpeppe.wordpress.com/&quot;&gt;Rogpeppe Page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang&quot;&gt;50 shades of Go: traps and pitfalls&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nada.kth.se/~snilsson/concurrency/&quot;&gt;Concurrency&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://rogpeppe.wordpress.com/&quot;&gt;Rogpeppe Page&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
 </description>
 				<pubDate>Tue, 29 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/go-notes</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/go-notes</guid>
+				<link>http://localhost:7777//2016/03/go-notes</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/go-notes</guid>
 			</item>
 		
 			<item>
@@ -66,238 +142,129 @@
 				<description>&lt;h3 id=&quot;course-ware&quot;&gt;Course Ware&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;  &lt;a href=&quot;http://www.cs.fsu.edu/%7Eredwood/OffensiveSecurity/lectures.html&quot;&gt;Offensive Course&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cs.fsu.edu/~redwood/OffensiveSecurity/lectures.html&quot;&gt;Offensive Course&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
 </description>
 				<pubDate>Sun, 27 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/RE-2</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/RE-2</guid>
+				<link>http://localhost:7777//2016/03/RE-2</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/RE-2</guid>
 			</item>
 		
 			<item>
 				<title>OS<sub>2</sub>--Device Driver</title>
-				<description>&lt;h3 id=&quot;1-development-environment&quot;&gt;1. Development Environment&lt;/h3&gt;
+				<description>&lt;h3 id=&quot;development-environment&quot;&gt;1. Development Environment&lt;/h3&gt;
 
 &lt;p&gt;Before coding, almost the most important thing is to get surpport code running. Sometimes it is not such easy to get everything right. This is the case. The trouble just comes. The following is my solution:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;  run &lt;code&gt;vagrant init ubuntu/trusty64 &amp;amp;&amp;amp; vagrant up --provider virtualbox&lt;/code&gt; to provide a clean environment for me. And &lt;a href=&quot;https://atlas.hashicorp.com/boxes/search&quot;&gt;Atlas&lt;/a&gt; is a nice place to search your appropriate boxes.&lt;/li&gt;
-&lt;li&gt;  run update.sh, it will update all surpport code with the official release.&lt;/li&gt;
-&lt;li&gt;  download &lt;a href=&quot;http://download.simics.net/pub/simics/4.8_fcd175/&quot;&gt;simics&lt;/a&gt;. The simics forum is a good place.&lt;/li&gt;
-&lt;li&gt;  run &lt;code&gt;apt-get install mtools&lt;/code&gt; to access utilities of MS-DOS on linux.&lt;/li&gt;
-&lt;li&gt;  Till now, we compiles the surpport code and generates the boot image.&lt;/li&gt;
+  &lt;li&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;vagrant init ubuntu/trusty64 &amp;amp;&amp;amp; vagrant up --provider virtualbox&lt;/code&gt; to provide a clean environment for me. And &lt;a href=&quot;https://atlas.hashicorp.com/boxes/search&quot;&gt;Atlas&lt;/a&gt; is a nice place to search your appropriate boxes.&lt;/li&gt;
+  &lt;li&gt;run update.sh, it will update all surpport code with the official release.&lt;/li&gt;
+  &lt;li&gt;download &lt;a href=&quot;http://download.simics.net/pub/simics/4.8_fcd175/&quot;&gt;simics&lt;/a&gt;. The simics forum is a good place.&lt;/li&gt;
+  &lt;li&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install mtools&lt;/code&gt; to access utilities of MS-DOS on linux.&lt;/li&gt;
+  &lt;li&gt;Till now, we compiles the surpport code and generates the boot image.&lt;/li&gt;
 &lt;/ul&gt;
+
 </description>
 				<pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/Operating-system-2</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/Operating-system-2</guid>
+				<link>http://localhost:7777//2016/03/Operating-system-2</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/Operating-system-2</guid>
 			</item>
 		
 			<item>
 				<title>DS<sub>1</sub>--Warm Up</title>
-				<description>&lt;h3 id=&quot;1-environment-setup&quot;&gt;1. Environment Setup&lt;/h3&gt;
+				<description>&lt;h3 id=&quot;environment-setup&quot;&gt;1. Environment Setup&lt;/h3&gt;
 
-&lt;p&gt;You only need to install &lt;code&gt;go&lt;/code&gt; compiler. Just run the following:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;apt-get install gccgo-5 to install gccgo 1.4.2.
+&lt;p&gt;You only need to install &lt;code class=&quot;highlighter-rouge&quot;&gt;go&lt;/code&gt; compiler. Just run the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install gccgo-5 to install gccgo 1.4.2.
 go test to run tests.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Official installation is recommended.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;h3 id=&quot;useful-links&quot;&gt;Useful links&lt;/h3&gt;
+&lt;p&gt;Official installation is recommended.
+### Useful links&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;  &lt;a href=&quot;http://www.cse.buffalo.edu/%7Estevko/courses/cse486/spring13/practice_problems.html&quot;&gt;Good Homeworks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;  &lt;a href=&quot;https://golang.org/doc/effective_go.html&quot;&gt;Effective Go&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cse.buffalo.edu/~stevko/courses/cse486/spring13/practice_problems.html&quot;&gt;Good Homeworks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://golang.org/doc/effective_go.html&quot;&gt;Effective Go&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
 </description>
 				<pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/DS-1</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/DS-1</guid>
+				<link>http://localhost:7777//2016/03/DS-1</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/DS-1</guid>
 			</item>
 		
 			<item>
 				<title>DB<sub>1</sub>--Warm Up</title>
-				<description>&lt;h3 id=&quot;1-course-notes&quot;&gt;1. Course Notes&lt;/h3&gt;
+				<description>&lt;h3 id=&quot;course-notes&quot;&gt;1. Course Notes&lt;/h3&gt;
 
-&lt;h3 id=&quot;2-project-notes&quot;&gt;2. Project Notes&lt;/h3&gt;
+&lt;h3 id=&quot;project-notes&quot;&gt;2. Project Notes&lt;/h3&gt;
+
 </description>
 				<pubDate>Sun, 20 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/DB-1</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/DB-1</guid>
+				<link>http://localhost:7777//2016/03/DB-1</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/DB-1</guid>
 			</item>
 		
 			<item>
 				<title>RE<sub>1</sub>--Warm Up</title>
-				<description></description>
+				<description>
+</description>
 				<pubDate>Sun, 20 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/SE-1</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/SE-1</guid>
+				<link>http://localhost:7777//2016/03/SE-1</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/SE-1</guid>
 			</item>
 		
 			<item>
 				<title>SE<sub>1</sub>--Warm Up</title>
-				<description></description>
+				<description>
+</description>
 				<pubDate>Thu, 17 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/RE-1</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/RE-1</guid>
+				<link>http://localhost:7777//2016/03/RE-1</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/RE-1</guid>
 			</item>
 		
 			<item>
 				<title>AT&T Assembly Language</title>
 				<description>&lt;h4 id=&quot;introduction&quot;&gt;Introduction&lt;/h4&gt;
 
-&lt;p&gt;When I take the operating system course, there are many situations where I have to deal with via assembly language. Unforturenately the assembly world has been messed up. No standards. It becomes machine related, assembler related, system related. For the sake of using &lt;em&gt;gcc&lt;/em&gt; to compile my code, I write this note. Assembly language annoys me. &lt;/p&gt;
+&lt;p&gt;When I take the operating system course, there are many situations where I have to deal with via assembly language. Unforturenately the assembly world has been messed up. No standards. It becomes machine related, assembler related, system related. For the sake of using &lt;em&gt;gcc&lt;/em&gt; to compile my code, I write this note. Assembly language annoys me.&lt;/p&gt;
 
-&lt;h4 id=&quot;1-procedure&quot;&gt;1. Procedure&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+&lt;h4 id=&quot;procedure&quot;&gt;1. Procedure&lt;/h4&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    	&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When a program is loaded into memory, it starts from an &lt;em&gt;entry point&lt;/em&gt;  to execute. The &lt;em&gt;entry point&lt;/em&gt; is not &lt;code&gt;main()&lt;/code&gt;. When &lt;code&gt;main()&lt;/code&gt; is called. It will execute the following code until call &lt;code&gt;empty()&lt;/code&gt; :&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;    pushl   %ebp
-    movl    %esp,   %ebp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-    subl    $16,    %esp
-    movl    $3,     4(%esp)
-    movl    $2,     (%esp)
-    call    empty
-    movl    $2,     -4(%ebp)
-    movl    $3,     -8(%ebp)
+&lt;p&gt;When a program is loaded into memory, it starts from an &lt;em&gt;entry point&lt;/em&gt;  to execute. The &lt;em&gt;entry point&lt;/em&gt; is not &lt;code class=&quot;highlighter-rouge&quot;&gt;main()&lt;/code&gt;. When &lt;code class=&quot;highlighter-rouge&quot;&gt;main()&lt;/code&gt; is called. It will execute the following code until call &lt;code class=&quot;highlighter-rouge&quot;&gt;empty()&lt;/code&gt; :&lt;/p&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-				<pubDate>Sun, 03 Jan 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/01/Assembly-AT&T</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/01/Assembly-AT&T</guid>
-			</item>
-		
-			<item>
-				<title>C Language Notes</title>
-				<description>&lt;h4 id=&quot;introduction&quot;&gt;Introduction&lt;/h4&gt;
-
-&lt;p&gt;Most of what I talk about in this notes are from some famous C programming books and my personal programming expeirence. C is an old programming language and provides the system programmer with the most freedom. You can do anything with it. &lt;/p&gt;
-
-&lt;h4 id=&quot;1-function-declaration&quot;&gt;1. Function declaration&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Call a funtion witch no arguments and site at address 0&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;(*(void(*) ()) 0) ();&lt;/code&gt; &lt;/p&gt;
-
-&lt;p&gt;Another declaration&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;funcptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;funcptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The secret behind this statement is the priority of parentheses is higher than asterisk&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;2-parallel-in-linux&quot;&gt;2. Parallel in linux&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Fork 3 processes:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;unistd.h&amp;gt;     //defines system calls and useful types.
-#include &amp;lt;sys/types.h&amp;gt;  //defines system call types, but more.
-&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;pid_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fork&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//process creation error.
-&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//child process.
-&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//parent process.
-&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;3-header-files&quot;&gt;3 Header files&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;stdlib.h and malloc.h 
-stdlib.h is a standard C header that declares among other things the malloc(), calloc(), free() functions. This is the header you should include.
-malloc.h is a non-standard header, found on many systems where it often defines additional functions specific to the malloc implementation used by that platform.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;4-inline-vs-macro&quot;&gt;4. &lt;code&gt;Inline&lt;/code&gt; VS &lt;code&gt;Macro&lt;/code&gt;&lt;/h4&gt;
-
-&lt;p&gt;Preprocessor macros are just substitution patterns applied to your code. They can be used almost anywhere in your code because they are replaced with their expansions before any compilation starts.
-Inline functions are actual functions whose body is directly injected into their call site. They can only be used where a function call is appropriate.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  Macros are not type safe, and can be expanded regardless of whether they are syntatically correct - the compile phase will report errors resulting from macro expansion problems.&lt;/li&gt;
-&lt;li&gt;  Macros are more flexible, in that they can expand other macros - whereas inline functions don&amp;#39;t necessarily do this.&lt;/li&gt;
-&lt;li&gt;  Macros can result in side effects because of their expansion, since the input expressions are copied wherever they appear in the pattern.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;5-pointer-to-functions&quot;&gt;5. Pointer to functions&lt;/h4&gt;
-
-&lt;p&gt;Pointer to functions if often used for callbacks. The address of function can be set directly, so it is possible to jump to an arbitrary address, it is useful in embedded-programming:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;func_ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x12345678&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;func_ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;However, it should be noted that this is not the same thing as unconditional jump, because return address is saved in the stack, maybe something else.&lt;/p&gt;
-
-&lt;h4 id=&quot;6-confusing-const-char-char-const-char-const&quot;&gt;6. Confusing &lt;code&gt;const char *&lt;/code&gt;, &lt;code&gt;char const *&lt;/code&gt;, &lt;code&gt;char * const&lt;/code&gt;&lt;/h4&gt;
-
-&lt;p&gt;We could read a definition from right to left. The meaning is much clearer. &lt;code&gt;const char *p&lt;/code&gt; says &lt;em&gt;p&lt;/em&gt; is a pointer to type &lt;code&gt;const char&lt;/code&gt;, that is the content of *&lt;em&gt;p&lt;/em&gt; can not be changed.&lt;/p&gt;
-
-&lt;h4 id=&quot;7-return-struct-from-function&quot;&gt;7. Return &lt;code&gt;struct&lt;/code&gt; from function.&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Returning a newly create struct instance from a function is perfectly safe. It is just *Return by value*. That newly created struct is copied to the return value. And the newly created struct is vanished by calling its destructor. For the sake of optimization, the struct instance may acturally created in the calling context to avoid later copy. 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&quot;c-stuff&quot;&gt;C++ Stuff&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Inheritance.&lt;/p&gt;
-
-&lt;p&gt;Decorated inheritance is just a way to narow the access scope of its parental members. That is &lt;code&gt;private&lt;/code&gt; inheritance narrows all its parental members to be &lt;code&gt;private&lt;/code&gt;. &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Vitual functions.&lt;/p&gt;
-
-&lt;p&gt;Normal functions are just a static binding to its current class. While &lt;code&gt;virtual&lt;/code&gt; functions are somewhat dynamic bindings. The owned instance is dymically resolved.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;secrets&quot;&gt;Secrets.&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Here doc&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;line1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&quot;line2&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&quot;line3&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;sizeof()&lt;/code&gt; operator.&lt;/p&gt;
-
-&lt;p&gt;Usually, sizeof() is applied to integral types or to structures, but nevertheless it is possible to apply it to arrays as well. The result is caculated via Bytes.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Standard preprocessor&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;__FILE__&lt;/code&gt;, &lt;code&gt;__LINE__&lt;/code&gt;, &lt;code&gt;__FUNCTION__&lt;/code&gt; denotes current file name, current line number, current function name respectively.&lt;/p&gt;
-
-&lt;p&gt;Next: C-notes(page 25)&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;others&quot;&gt;Others&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  &lt;a href=&quot;https://gcc.gnu.org/onlinedocs/cpp/Macros.html&quot;&gt;Macros&lt;/a&gt; is always a confusing part of C.&lt;/li&gt;
-&lt;li&gt;  Recommending read lines:
-
-&lt;ul&gt;
-&lt;li&gt;Effective C++: Introduces some import ideas about the language.&lt;/li&gt;
-&lt;li&gt;Exceptional C++: Some advanced staffs.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	pushl 	%ebp
+    movl	%esp,	%ebp
+    
+    subl	$16, 	%esp
+    movl	$3,		4(%esp)
+    movl 	$2,		(%esp)
+    call	empty
+    movl	$2,		-4(%ebp)
+    movl	$3,		-8(%ebp)
+    	
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
-				<pubDate>Fri, 01 Jan 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/01/C-notes</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/01/C-notes</guid>
+				<pubDate>Sun, 03 Jan 2016 00:00:00 +0800</pubDate>
+				<link>http://localhost:7777//2016/01/Assembly-AT&T</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/01/Assembly-AT&T</guid>
 			</item>
 		
 	</channel>

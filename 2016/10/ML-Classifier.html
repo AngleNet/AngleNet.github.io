@@ -1,0 +1,272 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Angle Net</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://localhost:7777/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Load KaTeX 
+  <link href="http://localhost:7777/css/katex.min.css" rel="stylesheet">
+  -->
+  <link href="http://localhost:7777/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="http://localhost:7777/js/jquery.min.js"></script>
+  <script src="http://localhost:7777/js/bootstrap.min.js"></script>
+  <script src="http://localhost:7777/js/header.js"></script>
+  <script src="http://localhost:7777/js/toc.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+            });
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <!-- Load KaTeX 
+  <script src="http://localhost:7777/js/katex.min.js"></script>
+  -->
+
+</head>
+
+<body>
+
+  
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://localhost:7777//">Angle Net</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="http://localhost:7777//">/home</a></li>
+          <li><a href="http://localhost:7777//archive.html">/archive</a></li>
+          <li><a href="http://localhost:7777//tags.html">/tags</a></li>
+          <li><a href="http://localhost:7777//about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="article">
+            <div class="well">
+              <h1><a href="http://localhost:7777/2016/10/ML-Classifier">Classifier</a></h1>
+              <div class="post-meta">
+                <div class="post-time">
+                  <i class="fa fa-calendar"></i>
+                  <time>13 Oct 2016</time>
+                </div>
+                <ul>
+                  
+                    <li><a href="http://localhost:7777/tag/Machine-Learning">Machine-Learning</a></li>
+                  
+                </ul>
+              </div>
+              <div class="post-content">
+                <div id="toc" class="toc"></div>
+                <h3 id="overview">Overview</h3>
+<p>We use Machine Learning as a powerful tool to dicover patterns and make predictions. Model and statistics help us understand the “pattern”. Optimization algorithm learns the “pattern”. The most important part is data. Data drives everything else.
+There are mainly 3 types of classifier, i.e Observer based, Generative model and Discriminative model. KNN is based on all of the instances. Bayes networks are generative model and decision trees are discriminative model. Also, I will explain some linear classification algorithms, I think that is the most interesting part of this blog.</p>
+
+<h3 id="k-nearst-neighbor">K-Nearst Neighbor</h3>
+
+<h3 id="bayes-networks">Bayes Networks</h3>
+
+<h3 id="dicision-tree">Dicision Tree</h3>
+
+<h3 id="linear-classifiers">Linear Classifiers</h3>
+
+<p>Linear classifier should divide the input space into a collection of regions via some hyperplanes since there may be multiple classes in the input space.</p>
+
+<ul>
+  <li>
+    <p>Find the Linear Boundaries</p>
+
+    <p>1.Fit linear regression model to the class indicator variables, then the overlapping margin is what we want.So:</p>
+
+    <script type="math/tex; mode=display">\lbrace X:(\beta _{k0} - \beta_{l0}) + (\beta _{k} - \beta _{l})X = 0\rbrace</script>
+
+    <p>We will get the linear boundary.</p>
+
+    <p>2.Directly model the boundaries between the classes as linear seperating hyperplanes</p>
+
+    <p>(d-1) dimensional hyperplanes(Also called perceptron):</p>
+
+    <script type="math/tex; mode=display">\lbrace X:\beta _0 + \beta _1 X_1 + \beta _2 X_2 = 0 \rbrace</script>
+
+    <p>We define the boundary as:</p>
+
+    <script type="math/tex; mode=display">\lbrace \beta _0 + \beta ^TX = 0\rbrace</script>
+
+    <p>For every point $X_0$ in the sample space, the distance from $X_0$ to the hyperplane is:</p>
+
+    <script type="math/tex; mode=display">d(\beta _0, \beta) = {\beta ^T(X - X_0) \over ||\beta||}</script>
+  </li>
+  <li>
+    <p>Perceptron Learning Algorithm</p>
+
+    <p>Idea: Minimize the risk of misclassification.
+  I want the hyperplane could seperate as much samples as possible. Any mistake should hurt the objective function. So I define a risk function as:</p>
+
+    <script type="math/tex; mode=display">argmin \quad R(\beta _0, \beta) = \sum_{X \in M}L(\beta _0, \beta, X_i, y_i)</script>
+
+    <script type="math/tex; mode=display">% <![CDATA[
+where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, & \text{if  $y_i(\beta _0 + \beta ^TX) \ge 0$}  \\ -y_i(\beta _0 + \beta ^TX) & \text{otherwise} \end{cases} %]]></script>
+
+    <p>Where $M$ is the set of misclassified samples. There are two ways to solve this: Gradient descent and Stochastic gradient descent. I’m not going to talk about this here. If you are interested, step to <a href="http://sebastianruder.com/optimizing-gradient-descent/">Overview of gradient descent including popular frameworks</a></p>
+  </li>
+  <li>
+    <p>Maximum Margin Classifier</p>
+  </li>
+  <li>
+    <p>Support Vector Classifier</p>
+  </li>
+  <li>
+    <p>Support Vector Machine</p>
+  </li>
+</ul>
+
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <div class="sidebar ">
+  <h1>Recent Posts</h1>
+  <ul>
+    
+    <li><a href="http://localhost:7777//2016/10/ML-Classifier">Classifier</a></li>
+    
+    <li><a href="http://localhost:7777//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
+    
+    <li><a href="http://localhost:7777//2016/03/go-notes">Go Language Notes</a></li>
+    
+    <li><a href="http://localhost:7777//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
+    
+    <li><a href="http://localhost:7777//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h1>Tags</h1>
+  <ul>
+    
+      <li><a href="http://localhost:7777//tag/Operating-System">Operating-System</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Tools">Tools</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Hadoop">Hadoop</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Language">Language</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Software-Engineering">Software-Engineering</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Reverse-Engineering">Reverse-Engineering</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Database-System">Database-System</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Distributed-System">Distributed-System</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Machine-Learning">Machine-Learning</a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+      <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Angle Net &copy; 2015</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+    
+    <li>
+        <a title="AngleNet on Github"
+            href="https://github.com/AngleNet"
+            target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+
+    
+
+    
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+  </body>
+<!--
+<script>
+$("script[type='math/tex']").replaceWith(
+    function(){
+        var tex = $(this).text();
+        return "<span class=\"inline-equation\">" + 
+            katex.renderToString(tex) +
+            "</span>";
+});
+$("script[type='math/tex; mode=display']").replaceWith(
+          function(){
+            var tex = $(this).text();
+            return "<div class=\"equation\">" + 
+                katex.renderToString("\\displaystyle "+tex) +
+                "</div>";
+});
+</script>
+-->
+</html>
+
+
+</div>

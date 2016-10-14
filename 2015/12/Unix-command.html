@@ -4,14 +4,30 @@
   <meta charset="UTF-8">
   <title>Angle Net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://anglenet.github.io/js/jquery.min.js"></script>
-  <script src="https://anglenet.github.io/js/bootstrap.min.js"></script>
-  <script src="https://anglenet.github.io/js/header.js"></script>
-  <script src="https://anglenet.github.io/js/toc.js"></script>
-  <link href="https://anglenet.github.io/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Load KaTeX 
+  <link href="http://localhost:7777/css/katex.min.css" rel="stylesheet">
+  -->
+  <link href="http://localhost:7777/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="http://localhost:7777/js/jquery.min.js"></script>
+  <script src="http://localhost:7777/js/bootstrap.min.js"></script>
+  <script src="http://localhost:7777/js/header.js"></script>
+  <script src="http://localhost:7777/js/toc.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+            });
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <!-- Load KaTeX 
+  <script src="http://localhost:7777/js/katex.min.js"></script>
+  -->
+
 </head>
 
 <body>
@@ -46,14 +62,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://anglenet.github.io//">Angle Net</a>
+        <a class="navbar-brand" href="http://localhost:7777//">Angle Net</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://anglenet.github.io//">/home</a></li>
-          <li><a href="https://anglenet.github.io//archive.html">/archive</a></li>
-          <li><a href="https://anglenet.github.io//tags.html">/tags</a></li>
-          <li><a href="https://anglenet.github.io//about.html">/about</a></li>
+          <li><a href="http://localhost:7777//">/home</a></li>
+          <li><a href="http://localhost:7777//archive.html">/archive</a></li>
+          <li><a href="http://localhost:7777//tags.html">/tags</a></li>
+          <li><a href="http://localhost:7777//about.html">/about</a></li>
         </ul>
       </div>
     </div>
@@ -67,7 +83,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="https://anglenet.github.io/2015/12/Unix-command">Useful Unix Commands</a></h1>
+              <h1><a href="http://localhost:7777/2015/12/Unix-command">Useful Unix Commands</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -75,138 +91,190 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://anglenet.github.io/tag/Unix">Unix</a></li>
+                    <li><a href="http://localhost:7777/tag/Tools">Tools</a></li>
                   
                 </ul>
               </div>
               <div class="post-content">
                 <div id="toc" class="toc"></div>
-                <p>&emsp;This list is still under maintainance. </p>
+                <p> This list is still under maintainance.</p>
 
 <h4 id="project-management">Project management</h4>
 
 <ul>
-<li><p>Search a specific statement in project files</p>
+  <li>
+    <p>Search a specific statement in project files</p>
 
-<p><code>grep -rn &quot;Search item&quot; .</code>  </p></li>
-<li><p>Find a specific file and print its path</p>
+    <p><code class="highlighter-rouge">grep -rn "Search item" . </code></p>
+  </li>
+  <li>
+    <p>Find a specific file and print its path</p>
 
-<p><code>find . -name &quot;file-name&quot; -print</code> </p></li>
-<li><p>Change permissions only on files</p>
+    <p><code class="highlighter-rouge">find . -name "file-name" -print</code></p>
+  </li>
+  <li>
+    <p>Change permissions only on files</p>
 
-<p><code>find . -type f -exec chmod 655 {} +</code></p></li>
-<li><p>Print output from stdin to stdout and file.</p>
+    <p><code class="highlighter-rouge">find . -type f -exec chmod 655 {} +</code></p>
+  </li>
+  <li>
+    <p>Print output from stdin to stdout and file.</p>
 
-<p><code>./a.out | tee filename</code></p></li>
+    <p><code class="highlighter-rouge">./a.out | tee filename</code></p>
+  </li>
 </ul>
 
 <h4 id="system-maintainance">System maintainance</h4>
 
 <ul>
-<li><p>Print log information when new logs added.</p>
+  <li>
+    <p>Print log information when new logs added.</p>
 
-<p><code>tail -f /var/log/auth.log</code></p></li>
-<li><p>Print file space usage in kb</p>
+    <p><code class="highlighter-rouge">tail -f /var/log/auth.log </code></p>
+  </li>
+  <li>
+    <p>Print file space usage in kb</p>
 
-<p><code>du -s -Bk</code></p></li>
-<li><p>Logout a specific user forcely</p>
+    <p><code class="highlighter-rouge">du -s -Bk</code></p>
+  </li>
+  <li>
+    <p>Logout a specific user forcely</p>
 
-<p><code>pkill -KILL -u username</code></p></li>
-<li><p>Show Tcp listening ports</p>
+    <p><code class="highlighter-rouge">pkill -KILL -u username</code></p>
+  </li>
+  <li>
+    <p>Show Tcp listening ports</p>
 
-<p><code>netstat -anp</code></p></li>
-<li><p>Split large files into smaller pieces</p>
+    <p><code class="highlighter-rouge">netstat -anp</code></p>
+  </li>
+  <li>
+    <p>Split large files into smaller pieces</p>
 
-<p><code>split [-l -b] filename prefix</code></p></li>
+    <p><code class="highlighter-rouge">split [-l -b] filename prefix</code></p>
+  </li>
 </ul>
 
 <h4 id="vim-tips">Vim tips</h4>
 
 <ul>
-<li><p>Tab management</p>
+  <li>
+    <p>Tab management</p>
 
-<p><code>gt</code> go next tab</p>
+    <p><code class="highlighter-rouge">gt</code> go next tab</p>
 
-<p><code>gT</code> go previous tab</p>
+    <p><code class="highlighter-rouge">gT</code> go previous tab</p>
 
-<p><code>{i}gt</code> go the specified tab</p>
+    <p><code class="highlighter-rouge"><span class="p">{</span><span class="err">i</span><span class="p">}</span><span class="err">gt</span></code> go the specified tab</p>
 
-<p><code>:e!</code> reload file</p>
+    <p><code class="highlighter-rouge">:e!</code> reload file</p>
 
-<p><code>:set autoread</code> Always check file and reload when file is changed</p>
+    <p><code class="highlighter-rouge">:set autoread</code> Always check file and reload when file is changed</p>
 
-<p><code>:checktime</code> set check time interval</p></li>
+    <p><code class="highlighter-rouge">:checktime</code> set check time interval</p>
+  </li>
 </ul>
 
 <h4 id="bash-scripts">Bash scripts</h4>
 
 <ul>
-<li><p><a href="http://www.tldp.org/LDP/abs/html/">The advanced bash-scripting guide</a></p></li>
-<li><p><code>for</code> statements</p>
+  <li>
+    <p><a href="http://www.tldp.org/LDP/abs/html/">The advanced bash-scripting guide</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">for</code> statements</p>
 
-<p><code>for((i=0; i&lt;1000; i++)); do echo $i; done</code>
-<code>for i in {1..5}; do echo $i; done</code></p></li>
-<li><p>Array</p>
+    <p><code class="highlighter-rouge">for((i=0; i&lt;1000; i++)); do echo $i; done</code>
+  <code class="highlighter-rouge">for i in {1..5}; do echo $i; done</code></p>
+  </li>
+  <li>
+    <p>Array</p>
 
-<p><code>array=(a b c d)</code></p></li>
+    <p><code class="highlighter-rouge">array=(a b c d)</code></p>
+  </li>
 </ul>
 
 <h4 id="software-maintainance">Software maintainance</h4>
 
 <ul>
-<li>  mysql</li>
+  <li>mysql</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">    sudo apt-get install mysql-server // Will install all needed packages.` 
-    sudo service mysql start
-    sudo service mysql stop
-    /etc/mysql/my.cnf //mysql configuration.
 
-    mysql -u root -p 
-    mysql&gt;&gt; use mysql;
-    mysql&gt;&gt; update user set password=password('new password') where user = 'root';
-    mysql&gt;&gt; flush privileges;
-    mysql&gt;&gt; create database test;
-    mysql&gt;&gt; grant all privileges on test.* to 'test'@'localhost' identified by '1234';
-</code></pre></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>	sudo apt-get install mysql-server // Will install all needed packages.` 
+	sudo service mysql start
+	sudo service mysql stop
+	/etc/mysql/my.cnf //mysql configuration.
+
+	mysql -u root -p 
+	mysql&gt;&gt; use mysql;
+	mysql&gt;&gt; update user set password=password('new password') where user = 'root';
+	mysql&gt;&gt; flush privileges;
+	mysql&gt;&gt; create database test;
+	mysql&gt;&gt; grant all privileges on test.* to 'test'@'localhost' identified by '1234';
+</code></pre>
+</div>
+
 <h4 id="configure-dinamic-library">Configure dinamic library</h4>
 
 <ul>
-<li>Generating .so file</li>
+  <li>Generating .so file</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">    gcc -c -o hello.o -fPIC hello.c
-    gcc -o libhello.so -shared hello.o
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	gcc -c -o hello.o -fPIC hello.c
+	gcc -o libhello.so -shared hello.o
+</code></pre>
+</div>
+
 <ul>
-<li>Use <i>ldconfig</i> to configure shared library path.</li>
+  <li>Use <i>ldconfig</i> to configure shared library path.</li>
 </ul>
 
 <h4 id="git-usage">Git usage</h4>
 
 <ul>
-<li><p>Remove staged files</p>
+  <li>
+    <p>Remove staged files</p>
 
-<p><code>git rm -r --cached deleted_directory</code></p></li>
-<li><p>Add new tag</p></li>
+    <p><code class="highlighter-rouge">git rm -r --cached deleted_directory</code></p>
+  </li>
+  <li>
+    <p>Add new tag</p>
+  </li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">    git tag -a v1.0 -m 'version 1.0'
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	git tag -a v1.0 -m 'version 1.0'
     git push origin v1.0
-</code></pre></div>
+</code></pre>
+</div>
+
 <ul>
-<li>Reset</li>
+  <li>Reset</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">    git reset --hard 'hash of commit'
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	git reset --hard 'hash of commit'
     git reflog
-</code></pre></div>
+</code></pre>
+</div>
+
 <h4 id="java-tools">Java tools</h4>
 
 <ul>
-<li>Debug with <i>jdb</i> </li>
+  <li>Debug with <i>jdb</i></li>
 </ul>
 
-<p>Sometimes when we want to debug a java program with standard input data, we get the problem that <code>jdb</code> does not surpport program input from standard stream. We need to use remote debugging mode of jdb.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">    cat test | java -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y Test 
+<p>Sometimes when we want to debug a java program with standard input data, we get the problem that <code class="highlighter-rouge">jdb</code> does not surpport program input from standard stream. We need to use remote debugging mode of jdb.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	cat test | java -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y Test 
     jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=8000
-</code></pre></div>
+</code></pre>
+</div>
+
+<h4 id="mathjax">MathJax</h4>
+
+<p>I write this blog using markdown along with Mathjax. It works quite well. Good links about how to make that happen:
+* <a href="http://mlworks.cn/posts/introduction-to-mathjax-and-latex-expression/">Mathjax and Latex Overview</a>
+* <a href="http://gastonsanchez.com/opinion/2014/02/16/Mathjax-with-jekyll">Patch Jekyll with Mathjax</a></p>
+
+
               </div>
               
               <div id="disqus_thread">
@@ -222,15 +290,15 @@
   <h1>Recent Posts</h1>
   <ul>
     
-    <li><a href="https://anglenet.github.io//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
+    <li><a href="http://localhost:7777//2016/10/ML-Classifier">Classifier</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/go-notes">Go Language Notes</a></li>
+    <li><a href="http://localhost:7777//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
+    <li><a href="http://localhost:7777//2016/03/go-notes">Go Language Notes</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
+    <li><a href="http://localhost:7777//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/DS-1">DS<sub>1</sub>--Warm Up</a></li>
+    <li><a href="http://localhost:7777//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
     
   </ul>
 </div>
@@ -239,21 +307,23 @@
   <h1>Tags</h1>
   <ul>
     
-      <li><a href="https://anglenet.github.io//tag/Operating-System">Operating-System</a></li>
+      <li><a href="http://localhost:7777//tag/Operating-System">Operating-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Unix">Unix</a></li>
+      <li><a href="http://localhost:7777//tag/Tools">Tools</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Hadoop">Hadoop</a></li>
+      <li><a href="http://localhost:7777//tag/Hadoop">Hadoop</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Language">Language</a></li>
+      <li><a href="http://localhost:7777//tag/Language">Language</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Software-Engineering">Software-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Software-Engineering">Software-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Reverse-Engineering">Reverse-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Reverse-Engineering">Reverse-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Database-System">Database-System</a></li>
+      <li><a href="http://localhost:7777//tag/Database-System">Database-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Distributed-System">Distributed-System</a></li>
+      <li><a href="http://localhost:7777//tag/Distributed-System">Distributed-System</a></li>
+    
+      <li><a href="http://localhost:7777//tag/Machine-Learning">Machine-Learning</a></li>
     
   </ul>
 </div>
@@ -315,6 +385,25 @@
       </div>
     </footer>
   </body>
+<!--
+<script>
+$("script[type='math/tex']").replaceWith(
+    function(){
+        var tex = $(this).text();
+        return "<span class=\"inline-equation\">" + 
+            katex.renderToString(tex) +
+            "</span>";
+});
+$("script[type='math/tex; mode=display']").replaceWith(
+          function(){
+            var tex = $(this).text();
+            return "<div class=\"equation\">" + 
+                katex.renderToString("\\displaystyle "+tex) +
+                "</div>";
+});
+</script>
+-->
 </html>
+
 
 </div>

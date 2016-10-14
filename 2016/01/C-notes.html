@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <title>Angle Net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://anglenet.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/bootstrap.min.css" rel="stylesheet">
   <!-- Load KaTeX 
-  <link href="https://anglenet.github.io/css/katex.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/katex.min.css" rel="stylesheet">
   -->
-  <link href="https://anglenet.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-  <script src="https://anglenet.github.io/js/jquery.min.js"></script>
-  <script src="https://anglenet.github.io/js/bootstrap.min.js"></script>
-  <script src="https://anglenet.github.io/js/header.js"></script>
-  <script src="https://anglenet.github.io/js/toc.js"></script>
+  <script src="http://localhost:7777/js/jquery.min.js"></script>
+  <script src="http://localhost:7777/js/bootstrap.min.js"></script>
+  <script src="http://localhost:7777/js/header.js"></script>
+  <script src="http://localhost:7777/js/toc.js"></script>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
             tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -25,7 +25,7 @@
     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
   </script>
   <!-- Load KaTeX 
-  <script src="https://anglenet.github.io/js/katex.min.js"></script>
+  <script src="http://localhost:7777/js/katex.min.js"></script>
   -->
 
 </head>
@@ -62,14 +62,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://anglenet.github.io//">Angle Net</a>
+        <a class="navbar-brand" href="http://localhost:7777//">Angle Net</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://anglenet.github.io//">/home</a></li>
-          <li><a href="https://anglenet.github.io//archive.html">/archive</a></li>
-          <li><a href="https://anglenet.github.io//tags.html">/tags</a></li>
-          <li><a href="https://anglenet.github.io//about.html">/about</a></li>
+          <li><a href="http://localhost:7777//">/home</a></li>
+          <li><a href="http://localhost:7777//archive.html">/archive</a></li>
+          <li><a href="http://localhost:7777//tags.html">/tags</a></li>
+          <li><a href="http://localhost:7777//about.html">/about</a></li>
         </ul>
       </div>
     </div>
@@ -83,7 +83,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="https://anglenet.github.io/2016/01/C-notes">C Language Notes</a></h1>
+              <h1><a href="http://localhost:7777/2016/01/C-notes">C Language Notes</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -91,7 +91,7 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://anglenet.github.io/tag/Language">Language</a></li>
+                    <li><a href="http://localhost:7777/tag/Language">Language</a></li>
                   
                 </ul>
               </div>
@@ -107,14 +107,13 @@
   <li>
     <p>Call a funtion witch no arguments and site at address 0</p>
 
-    <p><code class="highlighter-rouge">(*(void(*) ()) 0) ();</code></p>
+    <p><code>(*(void(*) ()) 0) ();</code></p>
 
     <p>Another declaration</p>
 
-    <div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">funcptr</span><span class="p">)();</span>
-<span class="p">(</span><span class="o">*</span> <span class="p">(</span><span class="n">funcptr</span><span class="p">)</span><span class="mi">0</span><span class="p">)();</span>
+    <pre><code class="language-c">typedef void (* funcptr)();
+(* (funcptr)0)();
 </code></pre>
-    </div>
 
     <p>The secret behind this statement is the priority of parentheses is higher than asterisk</p>
   </li>
@@ -126,24 +125,23 @@
   <li>
     <p>Fork 3 processes:</p>
 
-    <div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt; 	//defines system calls and useful types.
+    <pre><code class="language-c">#include &lt;unistd.h&gt; 	//defines system calls and useful types.
 #include &lt;sys/types.h&gt;	//defines system call types, but more.
-</span>   	
-<span class="n">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-	<span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
-    	<span class="c1">//process creation error.
-</span>    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-    	<span class="c1">//child process.
-</span>        <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-    	<span class="c1">//parent process.
-</span>    <span class="p">}</span>
-<span class="p">}</span>
+   	
+pid_t pid = 0;
+int i = 0;
+for(i = 0; i &lt; 3; i++){
+	pid = fork();
+    if(pid &lt; 0){
+    	//process creation error.
+    }else if(pid == 0){
+    	//child process.
+        break;
+    }else{
+    	//parent process.
+    }
+}
 </code></pre>
-    </div>
   </li>
 </ul>
 
@@ -155,7 +153,7 @@
   malloc.h is a non-standard header, found on many systems where it often defines additional functions specific to the malloc implementation used by that platform.</li>
 </ul>
 
-<h4 id="inline-vs-macro">4.<code class="highlighter-rouge">Inline</code> VS <code class="highlighter-rouge">Macro</code></h4>
+<h4 id="inline-vs-macro">4.<code>Inline</code> VS <code>Macro</code></h4>
 
 <p>Preprocessor macros are just substitution patterns applied to your code. They can be used almost anywhere in your code because they are replaced with their expansions before any compilation starts.
 Inline functions are actual functions whose body is directly injected into their call site. They can only be used where a function call is appropriate.</p>
@@ -170,22 +168,20 @@ Inline functions are actual functions whose body is directly injected into their
 
 <p>Pointer to functions if often used for callbacks. The address of function can be set directly, so it is possible to jump to an arbitrary address, it is useful in embedded-programming:</p>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code>    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func_ptr</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="mh">0x12345678</span><span class="p">;</span>
-    <span class="p">(</span><span class="o">*</span><span class="n">func_ptr</span><span class="p">)();</span>
+<pre><code class="language-c">    void (*func_ptr)(void) = (void (*)(void))0x12345678;
+    (*func_ptr)();
 </code></pre>
-</div>
 
 <p>However, it should be noted that this is not the same thing as unconditional jump, because return address is saved in the stack, maybe something else.</p>
 
-<h4 id="confusing-const-char--char-const--char--const">6. Confusing <code class="highlighter-rouge">const char *</code>, <code class="highlighter-rouge">char const *</code>, <code class="highlighter-rouge">char * const</code></h4>
+<h4 id="confusing-const-char--char-const--char--const">6. Confusing <code>const char *</code>, <code>char const *</code>, <code>char * const</code></h4>
 
-<p>We could read a definition from right to left. The meaning is much clearer. <code class="highlighter-rouge">const char *p</code> says <em>p</em> is a pointer to type <code class="highlighter-rouge">const char</code>, that is the content of <em>*p</em> can not be changed.</p>
+<p>We could read a definition from right to left. The meaning is much clearer. <code>const char *p</code> says <em>p</em> is a pointer to type <code>const char</code>, that is the content of <em>*p</em> can not be changed.</p>
 
-<h4 id="return-struct-from-function">7. Return <code class="highlighter-rouge">struct</code> from function.</h4>
+<h4 id="return-struct-from-function">7. Return <code>struct</code> from function.</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Returning a newly create struct instance from a function is perfectly safe. It is just *Return by value*. That newly created struct is copied to the return value. And the newly created struct is vanished by calling its destructor. For the sake of optimization, the struct instance may acturally created in the calling context to avoid later copy. 
+<pre><code>Returning a newly create struct instance from a function is perfectly safe. It is just *Return by value*. That newly created struct is copied to the return value. And the newly created struct is vanished by calling its destructor. For the sake of optimization, the struct instance may acturally created in the calling context to avoid later copy. 
 </code></pre>
-</div>
 
 <h4 id="c-stuff">C++ Stuff</h4>
 
@@ -193,12 +189,12 @@ Inline functions are actual functions whose body is directly injected into their
   <li>
     <p>Inheritance.</p>
 
-    <p>Decorated inheritance is just a way to narow the access scope of its parental members. That is <code class="highlighter-rouge">private</code> inheritance narrows all its parental members to be <code class="highlighter-rouge">private</code>.</p>
+    <p>Decorated inheritance is just a way to narow the access scope of its parental members. That is <code>private</code> inheritance narrows all its parental members to be <code>private</code>.</p>
   </li>
   <li>
     <p>Vitual functions.</p>
 
-    <p>Normal functions are just a static binding to its current class. While <code class="highlighter-rouge">virtual</code> functions are somewhat dynamic bindings. The owned instance is dymically resolved.</p>
+    <p>Normal functions are just a static binding to its current class. While <code>virtual</code> functions are somewhat dynamic bindings. The owned instance is dymically resolved.</p>
   </li>
 </ul>
 
@@ -208,21 +204,20 @@ Inline functions are actual functions whose body is directly injected into their
   <li>
     <p>Here doc</p>
 
-    <div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="o">=</span><span class="s">"line1</span><span class="se">\n</span><span class="s">"</span>
-    <span class="s">"line2</span><span class="se">\n</span><span class="s">"</span>
-    <span class="s">"line3</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <pre><code class="language-c">char *string="line1\n"
+    "line2\n"
+    "line3\n";
 </code></pre>
-    </div>
   </li>
   <li>
-    <p><code class="highlighter-rouge">sizeof()</code> operator.</p>
+    <p><code>sizeof()</code> operator.</p>
 
     <p>Usually, sizeof() is applied to integral types or to structures, but nevertheless it is possible to apply it to arrays as well. The result is caculated via Bytes.</p>
   </li>
   <li>
     <p>Standard preprocessor</p>
 
-    <p><code class="highlighter-rouge">__FILE__</code>, <code class="highlighter-rouge">__LINE__</code>, <code class="highlighter-rouge">__FUNCTION__</code> denotes current file name, current line number, current function name respectively.</p>
+    <p><code>__FILE__</code>, <code>__LINE__</code>, <code>__FUNCTION__</code> denotes current file name, current line number, current function name respectively.</p>
 
     <p>Next: C-notes(page 25)</p>
   </li>
@@ -251,15 +246,15 @@ Inline functions are actual functions whose body is directly injected into their
   <h1>Recent Posts</h1>
   <ul>
     
-    <li><a href="https://anglenet.github.io//2016/10/ML-Classifier">Classifier</a></li>
+    <li><a href="http://localhost:7777//2016/10/Python-Interpreter">Python Interpreter Internals</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
+    <li><a href="http://localhost:7777//2016/10/JVM">JVM Stuffs</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/go-notes">Go Language Notes</a></li>
+    <li><a href="http://localhost:7777//2016/10/ML-Classifier">Classifier</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
+    <li><a href="http://localhost:7777//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
+    <li><a href="http://localhost:7777//2016/03/go-notes">Go Language Notes</a></li>
     
   </ul>
 </div>
@@ -268,23 +263,23 @@ Inline functions are actual functions whose body is directly injected into their
   <h1>Tags</h1>
   <ul>
     
-      <li><a href="https://anglenet.github.io//tag/Operating-System">Operating-System</a></li>
+      <li><a href="http://localhost:7777//tag/Operating-System">Operating-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Tools">Tools</a></li>
+      <li><a href="http://localhost:7777//tag/Tools">Tools</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Hadoop">Hadoop</a></li>
+      <li><a href="http://localhost:7777//tag/Hadoop">Hadoop</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Language">Language</a></li>
+      <li><a href="http://localhost:7777//tag/Language">Language</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Software-Engineering">Software-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Software-Engineering">Software-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Reverse-Engineering">Reverse-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Reverse-Engineering">Reverse-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Database-System">Database-System</a></li>
+      <li><a href="http://localhost:7777//tag/Database-System">Database-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Distributed-System">Distributed-System</a></li>
+      <li><a href="http://localhost:7777//tag/Distributed-System">Distributed-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Machine-Learning">Machine-Learning</a></li>
+      <li><a href="http://localhost:7777//tag/Machine-Learning">Machine-Learning</a></li>
     
   </ul>
 </div>

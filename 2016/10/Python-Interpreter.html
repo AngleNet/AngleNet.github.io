@@ -83,26 +83,39 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="http://localhost:7777/2016/03/RE-2">RE<sub></sub>--Useful Links</a></h1>
+              <h1><a href="http://localhost:7777/2016/10/Python-Interpreter">Python Interpreter Internals</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
-                  <time>27 Mar 2016</time>
+                  <time>14 Oct 2016</time>
                 </div>
                 <ul>
                   
-                    <li><a href="http://localhost:7777/tag/Reverse-Engineering">Reverse-Engineering</a></li>
+                    <li><a href="http://localhost:7777/tag/Language">Language</a></li>
                   
                 </ul>
               </div>
               <div class="post-content">
                 <div id="toc" class="toc"></div>
-                <h3 id="course-ware">Course Ware</h3>
+                <h3 id="internals">Internals</h3>
+
+<h4 id="gil">GIL</h4>
+
+<p>If you worked along with python and C ever, you may familiar with it. The mechanism used by the CPython interpreter to assure that only one thread executes Python bytecode at a time. This simplifies the CPython implementation by making the object model (including critical built-in types such as dict) implicitly safe against concurrent access. Locking the entire interpreter makes it easier for the interpreter to be multi-threaded, at the expense of much of the parallelism afforded by multi-processor machines.</p>
+
+<p>GIL must be held by the current thread before it can safely access Python objects. The interpreter regularly tries to switch threads. The lock is also released around potential blocking I/O operations.</p>
+
+<h3 id="about-reading-cpython-source-code">About reading Cpython source code</h3>
+
+<h3 id="resources">Resources</h3>
 
 <ul>
-  <li><a href="http://www.cs.fsu.edu/~redwood/OffensiveSecurity/lectures.html">Offensive Course</a></li>
-</ul>
+  <li>
+    <p><a href="https://docs.python.org/3/c-api/index.html">Official Python/C API references</a></p>
 
+    <p>It explains much concepts used in the Cpython implementation and why they doing it that way.</p>
+  </li>
+</ul>
 
               </div>
               

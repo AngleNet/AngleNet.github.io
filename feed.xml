@@ -3,8 +3,63 @@
 	<channel>
 		<title>Angle Net</title>
 		<description>Software Developer</description>
-		<link>https://anglenet.github.io/</link>
-		<atom:link href="https://anglenet.github.io//feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://localhost:7777/</link>
+		<atom:link href="http://localhost:7777//feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Python Interpreter Internals</title>
+				<description>&lt;h3 id=&quot;internals&quot;&gt;Internals&lt;/h3&gt;
+
+&lt;h4 id=&quot;gil&quot;&gt;GIL&lt;/h4&gt;
+
+&lt;p&gt;If you worked along with python and C ever, you may familiar with it. The mechanism used by the CPython interpreter to assure that only one thread executes Python bytecode at a time. This simplifies the CPython implementation by making the object model (including critical built-in types such as dict) implicitly safe against concurrent access. Locking the entire interpreter makes it easier for the interpreter to be multi-threaded, at the expense of much of the parallelism afforded by multi-processor machines.&lt;/p&gt;
+
+&lt;p&gt;GIL must be held by the current thread before it can safely access Python objects. The interpreter regularly tries to switch threads. The lock is also released around potential blocking I/O operations.&lt;/p&gt;
+
+&lt;h3 id=&quot;about-reading-cpython-source-code&quot;&gt;About reading Cpython source code&lt;/h3&gt;
+
+&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://docs.python.org/3/c-api/index.html&quot;&gt;Official Python/C API references&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;It explains much concepts used in the Cpython implementation and why they doing it that way.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Fri, 14 Oct 2016 00:00:00 +0800</pubDate>
+				<link>http://localhost:7777//2016/10/Python-Interpreter</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/10/Python-Interpreter</guid>
+			</item>
+		
+			<item>
+				<title>JVM Stuffs</title>
+				<description>&lt;h4 id=&quot;auto-garbage-collectors&quot;&gt;Auto garbage collectors&lt;/h4&gt;
+
+&lt;p&gt;This is just a overview of GCs in HotSpot now. Java’s GC is generation based since we need to eliminate those short lived objects as soon as possible to get more memory efficiency. When Java calls GC, it will stop the world to check each object’s reference count. The memory model just looks like the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blogs/GC-internals.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There are 5 GCs in HotSpot, they are Serial GC, Parallel GC, Parallel GC, Concurrent mark &amp;amp; sweep GC and Garbage first GC. In parallel GC, multiple threads are used to speed up GC. So it’s also called throughput GC. But it has fragmentation effect (Each garbage collection thread involved in a minor collection reserves a part of the tenured generation for promotions and the division of the available space into these “promotion buffers” can cause a fragmentation effect). CMS GC does most of the garbage collection work concurrently with the application threads. Also called responsive gc. There is no compaction here. The Concurrent Mark Sweep (CMS) collector is designed for applications that prefer shorter garbage collection pauses and that can afford to share processor resources with the garbage collector while the application is running.&lt;/p&gt;
+
+&lt;h5 id=&quot;emsp-resources&quot;&gt;  Resources&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/toc.html&quot;&gt;Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://blog.takipi.com/7-things-you-thought-you-knew-about-garbage-collection-and-are-totally-wrong/&quot;&gt;7 Things You Thought You Knew About Garbage Collection - and Are Totally Wrong&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html&quot;&gt;Good GC introduction&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Fri, 14 Oct 2016 00:00:00 +0800</pubDate>
+				<link>http://localhost:7777//2016/10/JVM</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/10/JVM</guid>
+			</item>
 		
 			<item>
 				<title>Classifier</title>
@@ -61,6 +116,98 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Maximum Margin Classifier&lt;/p&gt;
+
+    &lt;p&gt;Idea: Find the largest isolation band that seperates the classes. We hope that a classifier that has a large margin on the training data will also have a large margin on the test data. When the feature dimension is too large, it’s easy to get overfitting.&lt;/p&gt;
+
+    &lt;p&gt;Then we get this:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmax _{(\beta,\; \beta _0)} \quad M&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;s.t.\quad {y_i(X_i^T \beta+\beta _0) \over ||\beta||} \ge M&lt;/script&gt;
+
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;When we set $M$ to ${1 \over&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;\beta&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;}$, we get:&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmin _{(\beta,\; \beta _0)} \quad ||\beta||&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;s.t.\quad y_i(X_i^T \beta+\beta _0) \ge 1&lt;/script&gt;
+
+    &lt;p&gt;We can do better:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmin _{(\beta,\; \beta _0)} \quad {1 \over 2}||\beta||^2&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;s.t.\quad y_i(X_i^T \beta+\beta _0) \ge 1&lt;/script&gt;
+
+    &lt;p&gt;It is a linear programming prolem. We solve this via Lagrangian Multiplier. The Lagrange function to be minimized w.r.t $\beta$ and $\beta _0$, is:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;Lp = {1 \over 2} ||\beta||^2 - \sum_{i=1}^N\alpha _i[y_i(x_i^T\beta + \beta _0) - 1]&lt;/script&gt;
+
+    &lt;p&gt;Setting the derivatives to zero, we obtain:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\beta = \sum_{i=1}^N\alpha _i y_i x_i&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;0 = \sum_{i=1}^N \alpha _i y_i&lt;/script&gt;
+
+    &lt;p&gt;We will try to solve this here.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Some Background
+        &lt;ol&gt;
+          &lt;li&gt;Lagrange Dual&lt;/li&gt;
+        &lt;/ol&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmin \quad f_D(x)&lt;/script&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+s.t. \quad \begin{cases} f_i(x) \le 0 &amp; i = 1, ..., m \\ h_i(x) = 0 &amp;i = 1, ..., p\end{cases} %]]&gt;&lt;/script&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;L(x, \lambda, \nu) = f_0(x) + \sum_{i=1}^m\lambda _i f_i(x) + \sum_{i=1}^p \nu h_i(x)&lt;/script&gt;
+
+        &lt;ol&gt;
+          &lt;li&gt;Lagrange dual function&lt;/li&gt;
+        &lt;/ol&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;g(\lambda, \nu) = \inf_{X \in D}L(X, \lambda, \nu)&lt;/script&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmin \quad L(x, \lambda, \nu) = f_0(x) + \sum_{i=1}^m\lambda _i f_i(x) + \sum_{i=1}^p \nu h_i(x)&lt;/script&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;where \quad \lambda \gt 0&lt;/script&gt;
+
+        &lt;p&gt;Displeasure part:&lt;/p&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;f_i(x) \ge 0&lt;/script&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;h_i(x) \ne 0&lt;/script&gt;
+
+        &lt;p&gt;Our displeasure grows as the constraint becomes “more violate”. Here the great idea is that “Replacing hard constrains with soft versions”.&lt;/p&gt;
+
+        &lt;ol&gt;
+          &lt;li&gt;Conjugate function&lt;/li&gt;
+        &lt;/ol&gt;
+
+        &lt;p&gt;The conjugate function $f^*(y)$ is the maximum gap between the linear function $xy$ and $f(x)$. See Convex Optimization by Stephen Boyd Chapter 3.3&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Solving details&lt;/p&gt;
+
+        &lt;p&gt;Get Wolfe dual: &lt;a href=&quot;https://www.cs.rochester.edu/~gildea/2013_Spring/wolfe.pdf&quot;&gt;Wolfe Dual Explaination&lt;/a&gt; and &lt;a href=&quot;https://arxiv.org/pdf/1506.04574.pdf&quot;&gt;Paper about lagrange and Wolf dual functions&lt;/a&gt;&lt;/p&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmax \quad L_D = \sum_{i=1}^N\alpha _i - {1 \over 2}\sum_{i=1}^N\sum_{k=1}^N\alpha _i \alpha _k y_i y_k x_i^T x_k&lt;/script&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;s.t. \quad \alpha _i \ge 0 \; \text{and} \; {dL \over dx} = 0&lt;/script&gt;
+
+        &lt;p&gt;The solution is obtained by maxmizing $L_D$ in the positive orthant.  A simpler convex optimization problem. Here the tricky part is we need to maxmizing $L_D$. That is because $L_D(\alpha)$ is a concave function.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Support Vector Classifier&lt;/p&gt;
@@ -72,8 +219,8 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 
 </description>
 				<pubDate>Thu, 13 Oct 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/10/ML-Classifier</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/10/ML-Classifier</guid>
+				<link>http://localhost:7777//2016/10/ML-Classifier</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/10/ML-Classifier</guid>
 			</item>
 		
 			<item>
@@ -82,8 +229,8 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 
 </description>
 				<pubDate>Fri, 15 Apr 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/04/DS-MapReduce-1</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/04/DS-MapReduce-1</guid>
+				<link>http://localhost:7777//2016/04/DS-MapReduce-1</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/04/DS-MapReduce-1</guid>
 			</item>
 		
 			<item>
@@ -98,28 +245,26 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 
 &lt;p&gt;Come soon&lt;/p&gt;
 
-&lt;h4 id=&quot;make-vs-new&quot;&gt;1.3 &lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt; VS &lt;code class=&quot;highlighter-rouge&quot;&gt;new&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;make-vs-new&quot;&gt;1.3 &lt;code&gt;make&lt;/code&gt; VS &lt;code&gt;new&lt;/code&gt;&lt;/h4&gt;
 
-&lt;p&gt;According to the &lt;a href=&quot;https://golang.org/doc/effective_go.html#allocation_new&quot;&gt;Official explanation&lt;/a&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;new&lt;/code&gt; does not initialize the memory, only zeros it and return the address. &lt;code class=&quot;highlighter-rouge&quot;&gt;make(T, args)&lt;/code&gt; serves a purpose different from new(T). It creates slices, maps, and channels only, and it returns an initialized (not zeroed) value of type T (not *T). So what &lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt; returns is usable immediately while what &lt;code class=&quot;highlighter-rouge&quot;&gt;new&lt;/code&gt; returns needs further initializing if zeroed content can not be used.&lt;/p&gt;
+&lt;p&gt;According to the &lt;a href=&quot;https://golang.org/doc/effective_go.html#allocation_new&quot;&gt;Official explanation&lt;/a&gt;, &lt;code&gt;new&lt;/code&gt; does not initialize the memory, only zeros it and return the address. &lt;code&gt;make(T, args)&lt;/code&gt; serves a purpose different from new(T). It creates slices, maps, and channels only, and it returns an initialized (not zeroed) value of type T (not *T). So what &lt;code&gt;make&lt;/code&gt; returns is usable immediately while what &lt;code&gt;new&lt;/code&gt; returns needs further initializing if zeroed content can not be used.&lt;/p&gt;
 
 &lt;h3 id=&quot;go-idioms&quot;&gt;2. Go idioms&lt;/h3&gt;
 
 &lt;h4 id=&quot;atomic-operation&quot;&gt;2.1 Atomic operation&lt;/h4&gt;
 
-&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;x&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;countCh&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;chan&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;countCh&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;countCh&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;pre&gt;&lt;code class=&quot;language-go&quot;&gt;	countCh := make(chan int)
+    count := &amp;lt;- countCh
+    count++
+    countCh &amp;lt;- count
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&quot;check-whether-the-channel-is-full&quot;&gt;2.2 Check whether the channel is full&lt;/h4&gt;
 
-&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;x&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;pre&gt;&lt;code class=&quot;language-go&quot;&gt;	if len(ch) == cap(ch){
+    }else{
+    }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&quot;useful-links&quot;&gt;Useful Links&lt;/h3&gt;
 
@@ -133,8 +278,8 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 
 </description>
 				<pubDate>Tue, 29 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/go-notes</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/go-notes</guid>
+				<link>http://localhost:7777//2016/03/go-notes</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/go-notes</guid>
 			</item>
 		
 			<item>
@@ -147,8 +292,8 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 
 </description>
 				<pubDate>Sun, 27 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/RE-2</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/RE-2</guid>
+				<link>http://localhost:7777//2016/03/RE-2</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/RE-2</guid>
 			</item>
 		
 			<item>
@@ -158,29 +303,28 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 &lt;p&gt;Before coding, almost the most important thing is to get surpport code running. Sometimes it is not such easy to get everything right. This is the case. The trouble just comes. The following is my solution:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;vagrant init ubuntu/trusty64 &amp;amp;&amp;amp; vagrant up --provider virtualbox&lt;/code&gt; to provide a clean environment for me. And &lt;a href=&quot;https://atlas.hashicorp.com/boxes/search&quot;&gt;Atlas&lt;/a&gt; is a nice place to search your appropriate boxes.&lt;/li&gt;
+  &lt;li&gt;run &lt;code&gt;vagrant init ubuntu/trusty64 &amp;amp;&amp;amp; vagrant up --provider virtualbox&lt;/code&gt; to provide a clean environment for me. And &lt;a href=&quot;https://atlas.hashicorp.com/boxes/search&quot;&gt;Atlas&lt;/a&gt; is a nice place to search your appropriate boxes.&lt;/li&gt;
   &lt;li&gt;run update.sh, it will update all surpport code with the official release.&lt;/li&gt;
   &lt;li&gt;download &lt;a href=&quot;http://download.simics.net/pub/simics/4.8_fcd175/&quot;&gt;simics&lt;/a&gt;. The simics forum is a good place.&lt;/li&gt;
-  &lt;li&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install mtools&lt;/code&gt; to access utilities of MS-DOS on linux.&lt;/li&gt;
+  &lt;li&gt;run &lt;code&gt;apt-get install mtools&lt;/code&gt; to access utilities of MS-DOS on linux.&lt;/li&gt;
   &lt;li&gt;Till now, we compiles the surpport code and generates the boot image.&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
 				<pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/Operating-system-2</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/Operating-system-2</guid>
+				<link>http://localhost:7777//2016/03/Operating-system-2</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/Operating-system-2</guid>
 			</item>
 		
 			<item>
 				<title>DS<sub>1</sub>--Warm Up</title>
 				<description>&lt;h3 id=&quot;environment-setup&quot;&gt;1. Environment Setup&lt;/h3&gt;
 
-&lt;p&gt;You only need to install &lt;code class=&quot;highlighter-rouge&quot;&gt;go&lt;/code&gt; compiler. Just run the following:&lt;/p&gt;
+&lt;p&gt;You only need to install &lt;code&gt;go&lt;/code&gt; compiler. Just run the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install gccgo-5 to install gccgo 1.4.2.
+&lt;pre&gt;&lt;code&gt;apt-get install gccgo-5 to install gccgo 1.4.2.
 go test to run tests.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;Official installation is recommended.
 ### Useful links&lt;/p&gt;
@@ -192,8 +336,8 @@ go test to run tests.
 
 </description>
 				<pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/DS-1</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/DS-1</guid>
+				<link>http://localhost:7777//2016/03/DS-1</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/DS-1</guid>
 			</item>
 		
 			<item>
@@ -204,8 +348,8 @@ go test to run tests.
 
 </description>
 				<pubDate>Sun, 20 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/DB-1</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/DB-1</guid>
+				<link>http://localhost:7777//2016/03/DB-1</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/DB-1</guid>
 			</item>
 		
 			<item>
@@ -213,58 +357,8 @@ go test to run tests.
 				<description>
 </description>
 				<pubDate>Sun, 20 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/SE-1</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/SE-1</guid>
-			</item>
-		
-			<item>
-				<title>SE<sub>1</sub>--Warm Up</title>
-				<description>
-</description>
-				<pubDate>Thu, 17 Mar 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/03/RE-1</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/03/RE-1</guid>
-			</item>
-		
-			<item>
-				<title>AT&T Assembly Language</title>
-				<description>&lt;h4 id=&quot;introduction&quot;&gt;Introduction&lt;/h4&gt;
-
-&lt;p&gt;When I take the operating system course, there are many situations where I have to deal with via assembly language. Unforturenately the assembly world has been messed up. No standards. It becomes machine related, assembler related, system related. For the sake of using &lt;em&gt;gcc&lt;/em&gt; to compile my code, I write this note. Assembly language annoys me.&lt;/p&gt;
-
-&lt;h4 id=&quot;procedure&quot;&gt;1. Procedure&lt;/h4&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    	&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;When a program is loaded into memory, it starts from an &lt;em&gt;entry point&lt;/em&gt;  to execute. The &lt;em&gt;entry point&lt;/em&gt; is not &lt;code class=&quot;highlighter-rouge&quot;&gt;main()&lt;/code&gt;. When &lt;code class=&quot;highlighter-rouge&quot;&gt;main()&lt;/code&gt; is called. It will execute the following code until call &lt;code class=&quot;highlighter-rouge&quot;&gt;empty()&lt;/code&gt; :&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	pushl 	%ebp
-    movl	%esp,	%ebp
-    
-    subl	$16, 	%esp
-    movl	$3,		4(%esp)
-    movl 	$2,		(%esp)
-    call	empty
-    movl	$2,		-4(%ebp)
-    movl	$3,		-8(%ebp)
-    	
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-				<pubDate>Sun, 03 Jan 2016 00:00:00 +0800</pubDate>
-				<link>https://anglenet.github.io//2016/01/Assembly-AT&T</link>
-				<guid isPermaLink="true">https://anglenet.github.io//2016/01/Assembly-AT&T</guid>
+				<link>http://localhost:7777//2016/03/SE-1</link>
+				<guid isPermaLink="true">http://localhost:7777//2016/03/SE-1</guid>
 			</item>
 		
 	</channel>

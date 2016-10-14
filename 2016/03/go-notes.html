@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <title>Angle Net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://anglenet.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/bootstrap.min.css" rel="stylesheet">
   <!-- Load KaTeX 
-  <link href="https://anglenet.github.io/css/katex.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/katex.min.css" rel="stylesheet">
   -->
-  <link href="https://anglenet.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-  <script src="https://anglenet.github.io/js/jquery.min.js"></script>
-  <script src="https://anglenet.github.io/js/bootstrap.min.js"></script>
-  <script src="https://anglenet.github.io/js/header.js"></script>
-  <script src="https://anglenet.github.io/js/toc.js"></script>
+  <script src="http://localhost:7777/js/jquery.min.js"></script>
+  <script src="http://localhost:7777/js/bootstrap.min.js"></script>
+  <script src="http://localhost:7777/js/header.js"></script>
+  <script src="http://localhost:7777/js/toc.js"></script>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
             tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -25,7 +25,7 @@
     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
   </script>
   <!-- Load KaTeX 
-  <script src="https://anglenet.github.io/js/katex.min.js"></script>
+  <script src="http://localhost:7777/js/katex.min.js"></script>
   -->
 
 </head>
@@ -62,14 +62,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://anglenet.github.io//">Angle Net</a>
+        <a class="navbar-brand" href="http://localhost:7777//">Angle Net</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://anglenet.github.io//">/home</a></li>
-          <li><a href="https://anglenet.github.io//archive.html">/archive</a></li>
-          <li><a href="https://anglenet.github.io//tags.html">/tags</a></li>
-          <li><a href="https://anglenet.github.io//about.html">/about</a></li>
+          <li><a href="http://localhost:7777//">/home</a></li>
+          <li><a href="http://localhost:7777//archive.html">/archive</a></li>
+          <li><a href="http://localhost:7777//tags.html">/tags</a></li>
+          <li><a href="http://localhost:7777//about.html">/about</a></li>
         </ul>
       </div>
     </div>
@@ -83,7 +83,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="https://anglenet.github.io/2016/03/go-notes">Go Language Notes</a></h1>
+              <h1><a href="http://localhost:7777/2016/03/go-notes">Go Language Notes</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -91,7 +91,7 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://anglenet.github.io/tag/Language">Language</a></li>
+                    <li><a href="http://localhost:7777/tag/Language">Language</a></li>
                   
                 </ul>
               </div>
@@ -107,28 +107,26 @@
 
 <p>Come soon</p>
 
-<h4 id="make-vs-new">1.3 <code class="highlighter-rouge">make</code> VS <code class="highlighter-rouge">new</code></h4>
+<h4 id="make-vs-new">1.3 <code>make</code> VS <code>new</code></h4>
 
-<p>According to the <a href="https://golang.org/doc/effective_go.html#allocation_new">Official explanation</a>, <code class="highlighter-rouge">new</code> does not initialize the memory, only zeros it and return the address. <code class="highlighter-rouge">make(T, args)</code> serves a purpose different from new(T). It creates slices, maps, and channels only, and it returns an initialized (not zeroed) value of type T (not *T). So what <code class="highlighter-rouge">make</code> returns is usable immediately while what <code class="highlighter-rouge">new</code> returns needs further initializing if zeroed content can not be used.</p>
+<p>According to the <a href="https://golang.org/doc/effective_go.html#allocation_new">Official explanation</a>, <code>new</code> does not initialize the memory, only zeros it and return the address. <code>make(T, args)</code> serves a purpose different from new(T). It creates slices, maps, and channels only, and it returns an initialized (not zeroed) value of type T (not *T). So what <code>make</code> returns is usable immediately while what <code>new</code> returns needs further initializing if zeroed content can not be used.</p>
 
 <h3 id="go-idioms">2. Go idioms</h3>
 
 <h4 id="atomic-operation">2.1 Atomic operation</h4>
 
-<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="x">	</span><span class="n">countCh</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="nb">make</span><span class="p">(</span><span class="k">chan</span><span class="x"> </span><span class="kt">int</span><span class="p">)</span><span class="x">
-    </span><span class="n">count</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&lt;-</span><span class="x"> </span><span class="n">countCh</span><span class="x">
-    </span><span class="n">count</span><span class="o">++</span><span class="x">
-    </span><span class="n">countCh</span><span class="x"> </span><span class="o">&lt;-</span><span class="x"> </span><span class="n">count</span><span class="x">
-</span></code></pre>
-</div>
+<pre><code class="language-go">	countCh := make(chan int)
+    count := &lt;- countCh
+    count++
+    countCh &lt;- count
+</code></pre>
 
 <h4 id="check-whether-the-channel-is-full">2.2 Check whether the channel is full</h4>
 
-<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="x">	</span><span class="k">if</span><span class="x"> </span><span class="nb">len</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="x"> </span><span class="o">==</span><span class="x"> </span><span class="nb">cap</span><span class="p">(</span><span class="n">ch</span><span class="p">){</span><span class="x">
-    </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="x">
-    </span><span class="p">}</span><span class="x">
-</span></code></pre>
-</div>
+<pre><code class="language-go">	if len(ch) == cap(ch){
+    }else{
+    }
+</code></pre>
 
 <h3 id="useful-links">Useful Links</h3>
 
@@ -151,15 +149,15 @@
   <h1>Recent Posts</h1>
   <ul>
     
-    <li><a href="https://anglenet.github.io//2016/10/ML-Classifier">Classifier</a></li>
+    <li><a href="http://localhost:7777//2016/10/Python-Interpreter">Python Interpreter Internals</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
+    <li><a href="http://localhost:7777//2016/10/JVM">JVM Stuffs</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/go-notes">Go Language Notes</a></li>
+    <li><a href="http://localhost:7777//2016/10/ML-Classifier">Classifier</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
+    <li><a href="http://localhost:7777//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
+    <li><a href="http://localhost:7777//2016/03/go-notes">Go Language Notes</a></li>
     
   </ul>
 </div>
@@ -168,23 +166,23 @@
   <h1>Tags</h1>
   <ul>
     
-      <li><a href="https://anglenet.github.io//tag/Operating-System">Operating-System</a></li>
+      <li><a href="http://localhost:7777//tag/Operating-System">Operating-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Tools">Tools</a></li>
+      <li><a href="http://localhost:7777//tag/Tools">Tools</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Hadoop">Hadoop</a></li>
+      <li><a href="http://localhost:7777//tag/Hadoop">Hadoop</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Language">Language</a></li>
+      <li><a href="http://localhost:7777//tag/Language">Language</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Software-Engineering">Software-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Software-Engineering">Software-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Reverse-Engineering">Reverse-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Reverse-Engineering">Reverse-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Database-System">Database-System</a></li>
+      <li><a href="http://localhost:7777//tag/Database-System">Database-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Distributed-System">Distributed-System</a></li>
+      <li><a href="http://localhost:7777//tag/Distributed-System">Distributed-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Machine-Learning">Machine-Learning</a></li>
+      <li><a href="http://localhost:7777//tag/Machine-Learning">Machine-Learning</a></li>
     
   </ul>
 </div>

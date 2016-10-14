@@ -83,26 +83,40 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="http://localhost:7777/2016/03/RE-2">RE<sub></sub>--Useful Links</a></h1>
+              <h1><a href="http://localhost:7777/2016/10/JVM">JVM Stuffs</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
-                  <time>27 Mar 2016</time>
+                  <time>14 Oct 2016</time>
                 </div>
                 <ul>
                   
-                    <li><a href="http://localhost:7777/tag/Reverse-Engineering">Reverse-Engineering</a></li>
+                    <li><a href="http://localhost:7777/tag/Language">Language</a></li>
                   
                 </ul>
               </div>
               <div class="post-content">
                 <div id="toc" class="toc"></div>
-                <h3 id="course-ware">Course Ware</h3>
+                <h4 id="auto-garbage-collectors">Auto garbage collectors</h4>
 
+<p>This is just a overview of GCs in HotSpot now. Java’s GC is generation based since we need to eliminate those short lived objects as soon as possible to get more memory efficiency. When Java calls GC, it will stop the world to check each object’s reference count. The memory model just looks like the following:</p>
+
+<p><img src="/images/blogs/GC-internals.png" alt="" /></p>
+
+<p>There are 5 GCs in HotSpot, they are Serial GC, Parallel GC, Parallel GC, Concurrent mark &amp; sweep GC and Garbage first GC. In parallel GC, multiple threads are used to speed up GC. So it’s also called throughput GC. But it has fragmentation effect (Each garbage collection thread involved in a minor collection reserves a part of the tenured generation for promotions and the division of the available space into these “promotion buffers” can cause a fragmentation effect). CMS GC does most of the garbage collection work concurrently with the application threads. Also called responsive gc. There is no compaction here. The Concurrent Mark Sweep (CMS) collector is designed for applications that prefer shorter garbage collection pauses and that can afford to share processor resources with the garbage collector while the application is running.</p>
+
+<h5 id="emsp-resources">  Resources</h5>
 <ul>
-  <li><a href="http://www.cs.fsu.edu/~redwood/OffensiveSecurity/lectures.html">Offensive Course</a></li>
+  <li>
+    <p><a href="http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/toc.html">Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide</a></p>
+  </li>
+  <li>
+    <p><a href="http://blog.takipi.com/7-things-you-thought-you-knew-about-garbage-collection-and-are-totally-wrong/">7 Things You Thought You Knew About Garbage Collection - and Are Totally Wrong</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html">Good GC introduction</a></p>
+  </li>
 </ul>
-
 
               </div>
               

@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <title>Angle Net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://anglenet.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/bootstrap.min.css" rel="stylesheet">
   <!-- Load KaTeX 
-  <link href="https://anglenet.github.io/css/katex.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/katex.min.css" rel="stylesheet">
   -->
-  <link href="https://anglenet.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://anglenet.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:7777/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-  <script src="https://anglenet.github.io/js/jquery.min.js"></script>
-  <script src="https://anglenet.github.io/js/bootstrap.min.js"></script>
-  <script src="https://anglenet.github.io/js/header.js"></script>
-  <script src="https://anglenet.github.io/js/toc.js"></script>
+  <script src="http://localhost:7777/js/jquery.min.js"></script>
+  <script src="http://localhost:7777/js/bootstrap.min.js"></script>
+  <script src="http://localhost:7777/js/header.js"></script>
+  <script src="http://localhost:7777/js/toc.js"></script>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
             tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -25,7 +25,7 @@
     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
   </script>
   <!-- Load KaTeX 
-  <script src="https://anglenet.github.io/js/katex.min.js"></script>
+  <script src="http://localhost:7777/js/katex.min.js"></script>
   -->
 
 </head>
@@ -62,14 +62,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://anglenet.github.io//">Angle Net</a>
+        <a class="navbar-brand" href="http://localhost:7777//">Angle Net</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://anglenet.github.io//">/home</a></li>
-          <li><a href="https://anglenet.github.io//archive.html">/archive</a></li>
-          <li><a href="https://anglenet.github.io//tags.html">/tags</a></li>
-          <li><a href="https://anglenet.github.io//about.html">/about</a></li>
+          <li><a href="http://localhost:7777//">/home</a></li>
+          <li><a href="http://localhost:7777//archive.html">/archive</a></li>
+          <li><a href="http://localhost:7777//tags.html">/tags</a></li>
+          <li><a href="http://localhost:7777//about.html">/about</a></li>
         </ul>
       </div>
     </div>
@@ -83,7 +83,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="https://anglenet.github.io/2016/10/ML-Classifier">Classifier</a></h1>
+              <h1><a href="http://localhost:7777/2016/10/ML-Classifier">Classifier</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -91,7 +91,7 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://anglenet.github.io/tag/Machine-Learning">Machine-Learning</a></li>
+                    <li><a href="http://localhost:7777/tag/Machine-Learning">Machine-Learning</a></li>
                   
                 </ul>
               </div>
@@ -150,6 +150,98 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, & \text{if  $y_i(\beta _0
   </li>
   <li>
     <p>Maximum Margin Classifier</p>
+
+    <p>Idea: Find the largest isolation band that seperates the classes. We hope that a classifier that has a large margin on the training data will also have a large margin on the test data. When the feature dimension is too large, it’s easy to get overfitting.</p>
+
+    <p>Then we get this:</p>
+
+    <script type="math/tex; mode=display">argmax _{(\beta,\; \beta _0)} \quad M</script>
+
+    <script type="math/tex; mode=display">s.t.\quad {y_i(X_i^T \beta+\beta _0) \over ||\beta||} \ge M</script>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>When we set $M$ to ${1 \over</td>
+          <td> </td>
+          <td>\beta</td>
+          <td> </td>
+          <td>}$, we get:</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script type="math/tex; mode=display">argmin _{(\beta,\; \beta _0)} \quad ||\beta||</script>
+
+    <script type="math/tex; mode=display">s.t.\quad y_i(X_i^T \beta+\beta _0) \ge 1</script>
+
+    <p>We can do better:</p>
+
+    <script type="math/tex; mode=display">argmin _{(\beta,\; \beta _0)} \quad {1 \over 2}||\beta||^2</script>
+
+    <script type="math/tex; mode=display">s.t.\quad y_i(X_i^T \beta+\beta _0) \ge 1</script>
+
+    <p>It is a linear programming prolem. We solve this via Lagrangian Multiplier. The Lagrange function to be minimized w.r.t $\beta$ and $\beta _0$, is:</p>
+
+    <script type="math/tex; mode=display">Lp = {1 \over 2} ||\beta||^2 - \sum_{i=1}^N\alpha _i[y_i(x_i^T\beta + \beta _0) - 1]</script>
+
+    <p>Setting the derivatives to zero, we obtain:</p>
+
+    <script type="math/tex; mode=display">\beta = \sum_{i=1}^N\alpha _i y_i x_i</script>
+
+    <script type="math/tex; mode=display">0 = \sum_{i=1}^N \alpha _i y_i</script>
+
+    <p>We will try to solve this here.</p>
+
+    <ul>
+      <li>Some Background
+        <ol>
+          <li>Lagrange Dual</li>
+        </ol>
+
+        <script type="math/tex; mode=display">argmin \quad f_D(x)</script>
+
+        <script type="math/tex; mode=display">% <![CDATA[
+s.t. \quad \begin{cases} f_i(x) \le 0 & i = 1, ..., m \\ h_i(x) = 0 &i = 1, ..., p\end{cases} %]]></script>
+
+        <script type="math/tex; mode=display">L(x, \lambda, \nu) = f_0(x) + \sum_{i=1}^m\lambda _i f_i(x) + \sum_{i=1}^p \nu h_i(x)</script>
+
+        <ol>
+          <li>Lagrange dual function</li>
+        </ol>
+
+        <script type="math/tex; mode=display">g(\lambda, \nu) = \inf_{X \in D}L(X, \lambda, \nu)</script>
+
+        <script type="math/tex; mode=display">argmin \quad L(x, \lambda, \nu) = f_0(x) + \sum_{i=1}^m\lambda _i f_i(x) + \sum_{i=1}^p \nu h_i(x)</script>
+
+        <script type="math/tex; mode=display">where \quad \lambda \gt 0</script>
+
+        <p>Displeasure part:</p>
+
+        <script type="math/tex; mode=display">f_i(x) \ge 0</script>
+
+        <script type="math/tex; mode=display">h_i(x) \ne 0</script>
+
+        <p>Our displeasure grows as the constraint becomes “more violate”. Here the great idea is that “Replacing hard constrains with soft versions”.</p>
+
+        <ol>
+          <li>Conjugate function</li>
+        </ol>
+
+        <p>The conjugate function $f^*(y)$ is the maximum gap between the linear function $xy$ and $f(x)$. See Convex Optimization by Stephen Boyd Chapter 3.3</p>
+      </li>
+      <li>
+        <p>Solving details</p>
+
+        <p>Get Wolfe dual: <a href="https://www.cs.rochester.edu/~gildea/2013_Spring/wolfe.pdf">Wolfe Dual Explaination</a> and <a href="https://arxiv.org/pdf/1506.04574.pdf">Paper about lagrange and Wolf dual functions</a></p>
+
+        <script type="math/tex; mode=display">argmax \quad L_D = \sum_{i=1}^N\alpha _i - {1 \over 2}\sum_{i=1}^N\sum_{k=1}^N\alpha _i \alpha _k y_i y_k x_i^T x_k</script>
+
+        <script type="math/tex; mode=display">s.t. \quad \alpha _i \ge 0 \; \text{and} \; {dL \over dx} = 0</script>
+
+        <p>The solution is obtained by maxmizing $L_D$ in the positive orthant.  A simpler convex optimization problem. Here the tricky part is we need to maxmizing $L_D$. That is because $L_D(\alpha)$ is a concave function.</p>
+      </li>
+    </ul>
   </li>
   <li>
     <p>Support Vector Classifier</p>
@@ -170,15 +262,15 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, & \text{if  $y_i(\beta _0
   <h1>Recent Posts</h1>
   <ul>
     
-    <li><a href="https://anglenet.github.io//2016/10/ML-Classifier">Classifier</a></li>
+    <li><a href="http://localhost:7777//2016/10/Python-Interpreter">Python Interpreter Internals</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
+    <li><a href="http://localhost:7777//2016/10/JVM">JVM Stuffs</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/go-notes">Go Language Notes</a></li>
+    <li><a href="http://localhost:7777//2016/10/ML-Classifier">Classifier</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/RE-2">RE<sub></sub>--Useful Links</a></li>
+    <li><a href="http://localhost:7777//2016/04/DS-MapReduce-1">MapReduce Framework</a></li>
     
-    <li><a href="https://anglenet.github.io//2016/03/Operating-system-2">OS<sub>2</sub>--Device Driver</a></li>
+    <li><a href="http://localhost:7777//2016/03/go-notes">Go Language Notes</a></li>
     
   </ul>
 </div>
@@ -187,23 +279,23 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, & \text{if  $y_i(\beta _0
   <h1>Tags</h1>
   <ul>
     
-      <li><a href="https://anglenet.github.io//tag/Operating-System">Operating-System</a></li>
+      <li><a href="http://localhost:7777//tag/Operating-System">Operating-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Tools">Tools</a></li>
+      <li><a href="http://localhost:7777//tag/Tools">Tools</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Hadoop">Hadoop</a></li>
+      <li><a href="http://localhost:7777//tag/Hadoop">Hadoop</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Language">Language</a></li>
+      <li><a href="http://localhost:7777//tag/Language">Language</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Software-Engineering">Software-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Software-Engineering">Software-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Reverse-Engineering">Reverse-Engineering</a></li>
+      <li><a href="http://localhost:7777//tag/Reverse-Engineering">Reverse-Engineering</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Database-System">Database-System</a></li>
+      <li><a href="http://localhost:7777//tag/Database-System">Database-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Distributed-System">Distributed-System</a></li>
+      <li><a href="http://localhost:7777//tag/Distributed-System">Distributed-System</a></li>
     
-      <li><a href="https://anglenet.github.io//tag/Machine-Learning">Machine-Learning</a></li>
+      <li><a href="http://localhost:7777//tag/Machine-Learning">Machine-Learning</a></li>
     
   </ul>
 </div>

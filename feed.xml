@@ -3,8 +3,8 @@
 	<channel>
 		<title>Angle Net</title>
 		<description>Software Developer</description>
-		<link>http://localhost:7777/</link>
-		<atom:link href="http://localhost:7777//feed.xml" rel="self" type="application/rss+xml" />
+		<link>https://anglenet.github.io/</link>
+		<atom:link href="https://anglenet.github.io//feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Classifier</title>
@@ -72,8 +72,8 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 
 </description>
 				<pubDate>Thu, 13 Oct 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:7777//2016/10/ML-Classifier</link>
-				<guid isPermaLink="true">http://localhost:7777//2016/10/ML-Classifier</guid>
+				<link>https://anglenet.github.io//2016/10/ML-Classifier</link>
+				<guid isPermaLink="true">https://anglenet.github.io//2016/10/ML-Classifier</guid>
 			</item>
 		
 			<item>
@@ -82,8 +82,8 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 
 </description>
 				<pubDate>Fri, 15 Apr 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:7777//2016/04/DS-MapReduce-1</link>
-				<guid isPermaLink="true">http://localhost:7777//2016/04/DS-MapReduce-1</guid>
+				<link>https://anglenet.github.io//2016/04/DS-MapReduce-1</link>
+				<guid isPermaLink="true">https://anglenet.github.io//2016/04/DS-MapReduce-1</guid>
 			</item>
 		
 			<item>
@@ -133,8 +133,8 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 
 </description>
 				<pubDate>Tue, 29 Mar 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:7777//2016/03/go-notes</link>
-				<guid isPermaLink="true">http://localhost:7777//2016/03/go-notes</guid>
+				<link>https://anglenet.github.io//2016/03/go-notes</link>
+				<guid isPermaLink="true">https://anglenet.github.io//2016/03/go-notes</guid>
 			</item>
 		
 			<item>
@@ -147,8 +147,8 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 
 </description>
 				<pubDate>Sun, 27 Mar 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:7777//2016/03/RE-2</link>
-				<guid isPermaLink="true">http://localhost:7777//2016/03/RE-2</guid>
+				<link>https://anglenet.github.io//2016/03/RE-2</link>
+				<guid isPermaLink="true">https://anglenet.github.io//2016/03/RE-2</guid>
 			</item>
 		
 			<item>
@@ -167,8 +167,8 @@ where\; L(\beta _0, \beta, X_i, y_i) = \begin{cases}0, &amp; \text{if  $y_i(\bet
 
 </description>
 				<pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:7777//2016/03/Operating-system-2</link>
-				<guid isPermaLink="true">http://localhost:7777//2016/03/Operating-system-2</guid>
+				<link>https://anglenet.github.io//2016/03/Operating-system-2</link>
+				<guid isPermaLink="true">https://anglenet.github.io//2016/03/Operating-system-2</guid>
 			</item>
 		
 			<item>
@@ -192,8 +192,8 @@ go test to run tests.
 
 </description>
 				<pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:7777//2016/03/DS-1</link>
-				<guid isPermaLink="true">http://localhost:7777//2016/03/DS-1</guid>
+				<link>https://anglenet.github.io//2016/03/DS-1</link>
+				<guid isPermaLink="true">https://anglenet.github.io//2016/03/DS-1</guid>
 			</item>
 		
 			<item>
@@ -204,8 +204,8 @@ go test to run tests.
 
 </description>
 				<pubDate>Sun, 20 Mar 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:7777//2016/03/DB-1</link>
-				<guid isPermaLink="true">http://localhost:7777//2016/03/DB-1</guid>
+				<link>https://anglenet.github.io//2016/03/DB-1</link>
+				<guid isPermaLink="true">https://anglenet.github.io//2016/03/DB-1</guid>
 			</item>
 		
 			<item>
@@ -213,8 +213,8 @@ go test to run tests.
 				<description>
 </description>
 				<pubDate>Sun, 20 Mar 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:7777//2016/03/SE-1</link>
-				<guid isPermaLink="true">http://localhost:7777//2016/03/SE-1</guid>
+				<link>https://anglenet.github.io//2016/03/SE-1</link>
+				<guid isPermaLink="true">https://anglenet.github.io//2016/03/SE-1</guid>
 			</item>
 		
 			<item>
@@ -222,8 +222,8 @@ go test to run tests.
 				<description>
 </description>
 				<pubDate>Thu, 17 Mar 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:7777//2016/03/RE-1</link>
-				<guid isPermaLink="true">http://localhost:7777//2016/03/RE-1</guid>
+				<link>https://anglenet.github.io//2016/03/RE-1</link>
+				<guid isPermaLink="true">https://anglenet.github.io//2016/03/RE-1</guid>
 			</item>
 		
 			<item>
@@ -263,8 +263,8 @@ go test to run tests.
 &lt;/div&gt;
 </description>
 				<pubDate>Sun, 03 Jan 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:7777//2016/01/Assembly-AT&T</link>
-				<guid isPermaLink="true">http://localhost:7777//2016/01/Assembly-AT&T</guid>
+				<link>https://anglenet.github.io//2016/01/Assembly-AT&T</link>
+				<guid isPermaLink="true">https://anglenet.github.io//2016/01/Assembly-AT&T</guid>
 			</item>
 		
 	</channel>

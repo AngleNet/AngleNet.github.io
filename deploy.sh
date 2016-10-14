@@ -8,10 +8,11 @@ online_url="http://anglenet.github.io"
 
 sed -i /^url/d _config.yml
 echo "url: $online_url" >> _config.yml
-sed -i /^url/d _config.yml
-echo "url: $local_url" >> _config.yml
 rm -rf _site
 jekyll build
+sed -i /^url/d _config.yml
+echo "url: $local_url" >> _config.yml
+
 cd $blog && git rm -rf *
 cd -
 mv _site/* $blog
